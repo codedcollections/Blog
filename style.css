@@ -18,3 +18,13 @@ Bygg en bloggplattform som innehåller följande delar:
 h1{
     font-family: "Inconsolata";
 }
+
+.l-grid--3{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
