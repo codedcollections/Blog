@@ -30,6 +30,7 @@ const textInput = document.querySelector("#text-input")
 const submitBtn = document.querySelector("#post")
 const latestDiv = document.querySelector(".latest")
 
+
 function addPost(e){
     //Stop from page reload on submitbtn click
     e.preventDefault()
@@ -40,6 +41,7 @@ function addPost(e){
 }
 submitBtn.addEventListener('click',addPost)
 
+//reads from array
 function showPosts(post){
     const newDiv = document.createElement("div")
     newDiv.className = "post"
@@ -51,4 +53,13 @@ function showPosts(post){
     newDiv.appendChild(newText)
     latestDiv.appendChild(newDiv)
 }
+
 postArray.forEach(showPosts)
+
+const dateStamp = new Date();
+
+const fullDate = dateStamp.getFullYear() +""+ (dateStamp.getMonth() + 1);
+const alternativeDate =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}:${dateStamp.getSeconds()}`
+
+console.log(fullDate)
+console.log(alternativeDate)
