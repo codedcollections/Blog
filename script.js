@@ -26,6 +26,7 @@ const postArray = [
     }
 ]
 const currentName = document.querySelector("#name")
+const titleText = document.querySelector("#title")
 const textInput = document.querySelector("#text-input")
 const submitBtn = document.querySelector("#post")
 const latestDiv = document.querySelector(".latest")
@@ -35,14 +36,22 @@ function addPost(e){
     //Stop from page reload on submitbtn click
     e.preventDefault()
     console.log("post")
-    console.log(currentName.value)
-    console.log(textInput.value)
+    if (currentName.value === "" || textInput.value === "" || titleText.value === ""){
+        console.log("Not read properly. Please fill each input field of form")
+    }
+    else{
+        console.log(currentName.value)
+        console.log(textInput.value)
+        console.log(titleText.value)
+    }
 
 }
+
 submitBtn.addEventListener('click',addPost)
 
 //reads from array
 function showPosts(post){
+
     const newDiv = document.createElement("div")
     newDiv.className = "post"
     const newTitle = document.createElement("h2")
@@ -63,3 +72,4 @@ const alternativeDate =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-$
 
 console.log(fullDate)
 console.log(alternativeDate)
+
