@@ -26,17 +26,25 @@ Bygg en bloggplattform som innehåller följande delar:
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 -->
 <body>
-    <h1>Blog</h1>
+    <h1>Blogs</h1>
     <h2>latest posts</h2>
 
     <div class="post-test">
         <h2 class="post-title">Post title lorem ipsum</h2>
-        <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
         <div class="extra">
-            <p class="user-name">Margareta</p>
-            <p class="time">2025-10-02 14:54:02</p>
+            <p class="time">2025-10-02 14:54</p>
+            <p class="user-name">Posted by Margareta</p>
         </div>
-        <div class="likes"><p class="heart">&hearts;</p><p class="num-likes">0</p></div>    
+        <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
+
+        <div class="likes">
+            <p class="heart">&hearts;</p>
+            <p class="num-likes">0</p>
+        </div>
+        <form class="comment">
+            <textarea name="comment" id="comment" placeholder="Comment..."></textarea>
+            <input type="submit" value="Add comment">
+        </form>
         
 
 

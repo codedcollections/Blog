@@ -215,11 +215,11 @@ flex-direction: column;
     cursor:pointer;
     box-shadow: inset 1rem 0 1.8rem 0.1rem rgb(147, 191, 191);
 }
-.post-text{
+/* .post-text{
     background: -webkit-linear-gradient(#000000,#eeeeee00);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
+} */
 .extra{
     display:flex;
     gap:1rem;
@@ -244,4 +244,11 @@ flex-direction: column;
 
 p span{
     margin-left:1rem;
+}
+
+.comment{
+    display:flex;
+
+    flex-direction: column;
+    width: 100%;
 }
