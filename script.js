@@ -98,3 +98,29 @@ function makeTimeStamp(){
 }
 
 const trymakeDate = makeTimeStamp()
+
+
+const localBtn = document.querySelector(".local-btn")
+let clickCounter = 1;
+function storeLocally(){
+    console.log("entered storeLocally")
+    if (!(clickCounter%2 == 0)){
+        // Spara data i localStorage
+        localStorage.setItem('username', 'JohnDoe');
+        localStorage.setItem('email', 'john@example.com');
+
+        // Hämta data från localStorage
+        const username = localStorage.getItem('username');
+        const email = localStorage.getItem('email');
+
+        console.log(`${username} and ${email}`)
+    }
+    else{
+        localStorage.clear()
+        console.log("cleared storage")
+        console.log(`the values of username and email are now:${username} and ${email}`)
+    }
+    clickCounter++
+}
+
+localBtn.addEventListener('click', storeLocally)
