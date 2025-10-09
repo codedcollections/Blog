@@ -30,24 +30,35 @@ Bygg en bloggplattform som innehåller följande delar:
     <h2>latest posts</h2>
 
     <div class="post-test">
+        <div class="update">
+            <p class="edit">&#10000;</p>
+            <p class="remove">&#10006;</p>
+        </div>
         <h2 class="post-title">Post title lorem ipsum</h2>
-        <div class="extra">
+        <div class="post-user-info">
             <p class="time">2025-10-02 14:54</p>
             <p class="user-name">Posted by Margareta</p>
         </div>
         <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
-
-        <div class="likes">
-            <p class="heart">&hearts;</p>
-            <p class="num-likes">0</p>
+        <div class="post-info">
+            <div class="likes">
+                <p class="heart">&hearts;</p>
+                <p class="num-likes">0</p>
+            </div>
+            <div class="likes comments">
+                <p>&#128488;</p>
+                <p>3</p>
+            </div>
+            <form class="comment">
+                <textarea name="comment" id="comment" placeholder="Comment..."></textarea>
+                <input type="submit" value="Add comment">
+            </form>
+            <ul>
+                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+            </ul>
         </div>
-        <form class="comment">
-            <textarea name="comment" id="comment" placeholder="Comment..."></textarea>
-            <input type="submit" value="Add comment">
-        </form>
-        
-
-
     </div>
     <div class="latest l-grid--3"></div>
 

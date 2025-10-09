@@ -154,13 +154,28 @@ Bygg en bloggplattform som innehåller följande delar:
 */
 @media only screen and (max-width: 900px) {
   body {
-    background-color: red;
+    color:red;
   }
   .l-grid--3{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: 1fr;
     background-color: blue;
 }
+}
+
+body{
+    /* background-color: #200026;
+    background-image: url("https://www.transparenttextures.com/patterns/xv.png"); */
+/*     background-color: #d6ffff;
+    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
+    /* background-color: #ddebe8;
+    background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png"); */
+    /* background-color: #fabaff;
+    opacity: 1;
+    background-image: radial-gradient(circle at center center, #e7ffa5, #fabaff), repeating-radial-gradient(circle at center center, #e7ffa5, #e7ffa5, 40px, transparent 80px, transparent 40px);
+    background-blend-mode: multiply; */
+    background-color: #6d6e6e;
+    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 
 p,li,a{
@@ -195,6 +210,30 @@ h1,h2,h3,h4,h5,h6{
 display: flex;
 flex-direction: column;
 }
+.update{
+    display:flex;
+    min-width:100%;
+    justify-content: end;
+    gap: 1rem;
+    margin-bottom:2rem;
+    
+}
+.update p {
+    font-size:1.5rem;
+    padding: 0.8rem;
+    color: white;
+    background-color: rgb(1, 115, 98);
+    border-radius: 1rem;
+}
+.edit:hover{
+    color:black;
+    background-color: rgb(155, 237, 255);
+}
+.remove:hover{
+    color:black;
+    background-color: rgb(255, 0, 106);
+}
+
 .post{
     display: flex;
     flex-direction: column;
@@ -206,14 +245,14 @@ flex-direction: column;
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    background-color: rgb(213, 255, 219);
+    background-color: rgb(196, 173, 248);
     padding:1rem;
     border-radius: 0 1rem;
-    box-shadow: inset 0 1rem 1.8rem 0.1rem rgb(201, 255, 238);
+    /* box-shadow: inset 0 1rem 1.8rem 0.1rem rgb(173, 180, 255); */
 }
 .post-test:hover{
     cursor:pointer;
-    box-shadow: inset 1rem 0 1.8rem 0.1rem rgb(147, 191, 191);
+    box-shadow: inset 0.5rem 0 1.8rem 0.1rem rgb(141, 92, 255);
 }
 /* .post-text{
     background: -webkit-linear-gradient(#000000,#eeeeee00);
@@ -241,11 +280,18 @@ flex-direction: column;
     /* border:0.3rem dotted rgba(255, 255, 255, 0); */
     box-shadow: 0 0 1rem 0.1rem rgba(163, 137, 151, 0.523);
 }
+ul li{
+    margin-bottom:2rem;
+}
 
 p span{
     margin-left:1rem;
 }
 
+.comment-log{
+    display: flex;
+    margin-bottom:0.5rem;
+}
 .comment{
     display:flex;
 
