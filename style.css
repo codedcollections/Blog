@@ -222,12 +222,12 @@ flex-direction: column;
     font-size:1.5rem;
     padding: 0.8rem;
     color: white;
-    background-color: rgb(1, 115, 98);
+    background-color: rgb(23, 90, 112);
     border-radius: 1rem;
 }
 .edit:hover{
     color:black;
-    background-color: rgb(155, 237, 255);
+    background-color: rgb(95, 255, 191);
 }
 .remove:hover{
     color:black;
