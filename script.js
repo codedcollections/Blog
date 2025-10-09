@@ -25,7 +25,6 @@ const postArray = [
         text: "aksld masdlm saakl dmkdlamakslm dlksa dmsa dsam ldam dklsam dakldmsldamdkd almldsk"
     }
 ]
-const currentUser = document.querySelector("#name")
 const titleText = document.querySelector("#title")
 const textInput = document.querySelector("#text-input")
 const submitBtn = document.querySelector("#post")
@@ -36,15 +35,18 @@ function checkForm(e){
     //Stop from page reload on submitbtn click
     e.preventDefault()
     console.log("post")
-    if (currentUser.value === "" || textInput.value === "" || titleText.value === ""){
+    //needs to be read on button press, otherwise no chosen radio button and no value
+    const currentUser = document.querySelector('input[name="user"]:checked').value;
+    
+    if (textInput.value === "" || titleText.value === ""){
         console.log("Not read properly. Please fill each input field of form 😀")
     }
     else{
-        console.log(currentUser.value)
+        console.log(currentUser)
         console.log(titleText.value)
         console.log(textInput.value)
         console.log(makeTimeStamp())
-        createPost(currentUser.value,titleText.value,textInput.value)
+        createPost(currentUser,titleText.value,textInput.value)
     }
 
 }

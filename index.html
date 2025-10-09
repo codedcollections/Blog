@@ -26,50 +26,145 @@ Bygg en bloggplattform som innehåller följande delar:
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 -->
 <body>
-    <h1>Blogs</h1>
-    <h2>latest posts</h2>
+    <header>
+        <h2>blogs</h2>
+        <button>&#10000;</button>
+    </header>
+    <div class="wrapper">
+        <h1>Blogs</h1>
+        <h2>latest posts</h2>
 
-    <div class="post-test">
-        <div class="update">
-            <p class="edit">&#10000;</p>
-            <p class="remove">&#10006;</p>
-        </div>
-        <h2 class="post-title">Post title lorem ipsum</h2>
-        <div class="post-user-info">
-            <p class="time">2025-10-02 14:54</p>
-            <p class="user-name">Posted by Margareta</p>
-        </div>
-        <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
-        <div class="post-info">
-            <div class="likes">
-                <p class="heart">&hearts;</p>
-                <p class="num-likes">0</p>
+        <div class="post-test">
+            <div class="update">
+                <p class="edit">&#10000;</p>
+                <p class="remove">&#10006;</p>
             </div>
-            <div class="likes comments">
-                <p>&#128488;</p>
-                <p>3</p>
+            <h2 class="post-title">Post title lorem ipsum</h2>
+            <div class="post-user-info">
+                <p class="time">2025-10-02 14:54</p>
+                <p class="user-name">Posted by Margareta</p>
             </div>
-            <form class="comment">
-                <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
-                <input type="submit" value="Add comment">
-            </form>
-            <ul>
-                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-            </ul>
+            <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
+            <div class="post-info">
+                <div class="likes">
+                    <p class="heart">&hearts;</p>
+                    <p class="num-likes">0</p>
+                </div>
+                <div class="likes comments">
+                    <p>&#128488;</p>
+                    <p>3</p>
+                </div>
+                <form class="comment">
+                    <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
+                    <input type="submit" value="Add comment">
+                </form>
+                <h3>Comments:</h3>
+                <ul>
+                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                </ul>
+            </div>
         </div>
+        <div class="latest l-grid--3">
+            <div class="post-test">
+                <div class="update">
+                    <p class="edit">&#10000;</p>
+                    <p class="remove">&#10006;</p>
+                </div>
+                <h2 class="post-title">Post title lorem ipsum</h2>
+                <div class="post-user-info">
+                    <p class="time">2025-10-02 14:54</p>
+                    <p class="user-name">Posted by Margareta</p>
+                </div>
+                <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum
+                    velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum
+                    obcaecati officiis!</p>
+                <div class="post-info">
+                    <div class="likes">
+                        <p class="heart">&hearts;</p>
+                        <p class="num-likes">0</p>
+                    </div>
+                    <div class="likes comments">
+                        <p>&#128488;</p>
+                        <p>3</p>
+                    </div>
+                    <form class="comment">
+                        <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
+                        <input type="submit" value="Add comment">
+                    </form>
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="post-test">
+                <div class="update">
+                    <p class="edit">&#10000;</p>
+                    <p class="remove">&#10006;</p>
+                </div>
+                <h2 class="post-title">Post title lorem ipsum</h2>
+                <div class="post-user-info">
+                    <p class="time">2025-10-02 14:54</p>
+                    <p class="user-name">Posted by Margareta</p>
+                </div>
+                <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum
+                    velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum
+                    obcaecati officiis!</p>
+                <div class="post-info">
+                    <div class="likes">
+                        <p class="heart">&hearts;</p>
+                        <p class="num-likes">0</p>
+                    </div>
+                    <div class="likes comments">
+                        <p>&#128488;</p>
+                        <p>3</p>
+                    </div>
+                    <form class="comment">
+                        <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
+                        <input type="submit" value="Add comment">
+                    </form>
+                    <h3>Comments:</h3>
+                    <ul>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
+                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <form>
+            <input type="radio" name="user" id="adam" value="Adam">
+            <label for="adam">Adam</label>
+            <br>
+            <input type="radio" name="user" id="nora" value="Nora">
+            <label for="nora">Nora</label>
+            <br>
+            <input type="text" name="title" id="title" placeholder="title of post">
+            <br>
+            <textarea name="text-input" id="text-input" placeholder="Add text"></textarea>
+            <br>
+            <input type="reset">
+            <input type="submit" value="Submit" id="post">
+        </form>
+
+        <button class="local-btn">Store/Delete</button>
     </div>
-    <div class="latest l-grid--3"></div>
-
-    <form>
-        <label for="add">New post:</label>
-        <input type="text" id="name" placeholder="your name">
-        <input type="text" name="title" id="title" placeholder="title of post">
-        <textarea name="text-input" id="text-input" placeholder="Add text"></textarea>
-        <input type="submit" value="Submit" id="post">
-    </form>
-
-    <button class="local-btn">Store/Delete</button>
 </body>
 </html>
