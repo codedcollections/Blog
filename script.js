@@ -37,7 +37,7 @@ function changeSymbol(){
     //to point to the image with SVG
     const currentSymbol = document.querySelector("#edit-mode-icon")
     console.log(`currentSymbol.src is now ${currentSymbol.src}`)
-    if (currentSymbol.src==="assets/symbols/edit.svg"){
+    if (currentSymbol.src==="https://codedcollections.github.io/Blog/assets/symbols/edit.svg"){
         console.log("hej")
         currentSymbol.src="assets/symbols/cross.svg"
     }
