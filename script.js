@@ -43,6 +43,7 @@ function changeSymbol(){
     }
     else{
         console.log("not the src")
+        console.log(`${currentSymbol.src}`)
         currentSymbol.src= "assets/symbols/edit.svg"
     }
 }
