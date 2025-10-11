@@ -168,18 +168,8 @@ Bygg en bloggplattform som innehåller följande delar:
 }
 
 body{
-    /* background-color: #200026;
-    background-image: url("https://www.transparenttextures.com/patterns/xv.png"); */
-/*     background-color: #d6ffff;
-    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
-    /* background-color: #ddebe8;
-    background-image: url("https://www.transparenttextures.com/patterns/white-diamond-dark.png"); */
-    /* background-color: #fabaff;
-    opacity: 1;
-    background-image: radial-gradient(circle at center center, #e7ffa5, #fabaff), repeating-radial-gradient(circle at center center, #e7ffa5, #e7ffa5, 40px, transparent 80px, transparent 40px);
-    background-blend-mode: multiply; */
-/*     background-color: #6d6e6e;
-    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png"); */
+    background-color: #e4c7fb;
+    background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
 }
 
 p,li,a{
@@ -210,6 +200,33 @@ h1,h2,h3,h4,h5,h6{
     color:rgb(26, 26, 26)
 }
 
+.l-flex{
+    display:flex;
+}
+.l-flex--apart{
+    justify-content: space-between;
+}
+
+header{
+    background-color: white;
+    padding:1rem 2rem;
+}
+.svg{
+    width:2rem;
+    height: 2rem;
+}
+
+.edit-mode{
+    border:none;
+    border-radius: 0.5rem;
+    padding:0.1rem;
+}
+.edit-mode:hover{
+    background-color: rgb(106, 212, 247);
+    cursor:pointer;
+}
+
+/* 
 .l-grid--3{
 display: grid;
 grid-template-columns: repeat(3,1fr);
@@ -240,7 +257,8 @@ gap:1rem;
     background-color: rgb(255, 0, 106);
     cursor: pointer;
 }
-
+ */
+ /* 
 .post{
     display: flex;
     flex-direction: column;
@@ -254,7 +272,7 @@ gap:1rem;
     background-color: rgb(196, 173, 248);
     padding:1rem;
     border-radius: 0 1rem;
-    /* box-shadow: inset 0 1rem 1.8rem 0.1rem rgb(173, 180, 255); */
+    box-shadow: inset 0 1rem 1.8rem 0.1rem rgb(173, 180, 255);
 }
 .post-test:hover{
     box-shadow: inset 0.5rem 0 1.8rem 0.1rem rgb(141, 92, 255);
@@ -264,25 +282,27 @@ gap:1rem;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 } */
+ /* 
 .extra{
     display:flex;
     gap:1rem;
     margin-top:2rem;
-}
+} */
+ /* 
 .likes{
     display:flex;
     padding:1rem;
     margin:2rem 0;
     gap:1rem;
-    /* border: 0.3rem dotted rgb(255, 255, 255); */
+    border: 0.3rem dotted rgb(255, 255, 255);
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 2rem;
 }
 .likes:hover{
-    /* cursor:grab; */
+    cursor:grab;
     color: transparent;  
     text-shadow: 0 0 0 rgb(255, 0, 136);
-    /* border:0.3rem dotted rgba(255, 255, 255, 0); */
+    border:0.3rem dotted rgba(255, 255, 255, 0);
     box-shadow: 0 0 1rem 0.1rem rgba(163, 137, 151, 0.523);
     cursor: pointer;
 }
@@ -303,4 +323,4 @@ p span{
 
     flex-direction: column;
     width: 100%;
-}
+} */

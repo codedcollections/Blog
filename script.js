@@ -25,11 +25,27 @@ const postArray = [
         text: "aksld masdlm saakl dmkdlamakslm dlksa dmsa dsam ldam dklsam dakldmsldamdkd almldsk"
     }
 ]
+const editModeBtn = document.querySelector(".edit-mode")
 const titleText = document.querySelector("#title")
 const textInput = document.querySelector("#text-input")
 const submitBtn = document.querySelector("#post")
 const latestDiv = document.querySelector(".latest")
 
+
+function changeSymbol(){
+    console.log("entered function")
+    //to point to the image with SVG
+    const currentSymbol = document.querySelector("#edit-mode-icon")
+    if (currentSymbol.src==="assets/symbols/edit.svg"){
+        console.log("hej")
+        currentSymbol.src="assets/symbols/cross.svg"
+    }
+    else{
+        console.log("not the src")
+        currentSymbol.src= "assets/symbols/edit.svg"
+    }
+}
+editModeBtn.addEventListener('click',()=> changeSymbol())
 
 function checkForm(e){
     //Stop from page reload on submitbtn click
