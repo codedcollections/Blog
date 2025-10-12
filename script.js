@@ -61,6 +61,11 @@ const newPost = new Posts(1,alternativeDate,"title","start post text end",1,"Ada
 newPost.addComment(newComment)
 console.log(newPost.printPost())
 
+function renderPosts(newPost){
+    let newPostDiv = document.createElement("div")
+    newPostDiv.className = "post"   
+}
+
 function checkLogIn(e){
     e.preventDefault()
     const nameCheck = userNameInput.value
