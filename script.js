@@ -22,9 +22,7 @@ import {Users} from './assets/classes/classes.js';
 OBS! Any additional input from user needs to be a part of the code below
 Not in declaration of the class
  */
-const post1 = new Users(1,"Adam")
-console.log(post1.shareAMessage("Let's write a message here using Users class"))
-console.log(post1.printUsers())
+
 
 const postArray = [
     {
@@ -38,9 +36,41 @@ const postArray = [
 ]
 const editModeBtn = document.querySelector(".edit-mode")
 const titleText = document.querySelector("#title")
-const textInput = document.querySelector("#text-input")
+const postTextInput = document.querySelector("#post-text-input")
 const submitBtn = document.querySelector("#post")
 const latestDiv = document.querySelector(".latest")
+const logInBtn = document.querySelector("#log-in")
+const userNameInput = document.querySelector("#user-name")
+const passwordInput = document.querySelector("#password")
+let userArray = []
+//0 = no specific user
+let currentUserIndex = 0
+
+const user1 = new Users(1,"Adam","111")
+console.log(user1.shareAMessage("Let's write a message here using Users class"))
+console.log(user1.printUsers())
+userArray.push(user1)
+console.log(`array contains: ${userArray.length} item(s)`)
+
+
+function checkLogIn(e){
+    e.preventDefault()
+    const nameCheck = userNameInput.value
+    const passwordCheck = passwordInput.value
+
+    const user = userArray.find((element) => element.userName === nameCheck);
+    console.log(`username is seen as ${userNameInput.value} and password as ${passwordInput.value}`)
+    //console.log(`namecheck is ${nameCheck} and password is ${passwordCheck} and user is seen as ${user.printUsers()}`)
+    if(!user){
+        console.log(console.log("username or password is incorrect"))
+    }
+    else if(nameCheck === user.userName && passwordCheck === user.password){
+        console.log("a match")
+        currentUserIndex = user.userID
+    }
+    console.log(`after if currentUserIndex is seen as ${currentUserIndex}`)
+}
+logInBtn.addEventListener('click',checkLogIn)
 
 
 function changeSymbol(){
@@ -48,7 +78,8 @@ function changeSymbol(){
     //to point to the image with SVG
     const currentSymbol = document.querySelector("#edit-mode-icon")
     console.log(`currentSymbol.src is now ${currentSymbol.src}`)
-    if (currentSymbol.src==="https://codedcollections.github.io/Blog/assets/symbols/edit.svg"){
+    //Include allows to check for parts of URL, avoids uploading problems and having different URL-beginnings
+    if (currentSymbol.src.includes('assets/symbols/edit.svg')){
         console.log("hej")
         currentSymbol.src="assets/symbols/cross.svg"
     }
@@ -67,22 +98,22 @@ function checkForm(e){
     //needs to be read on button press, otherwise no chosen radio button and no value
     const currentUser = document.querySelector('input[name="user"]:checked').value;
     
-    if (textInput.value === "" || titleText.value === ""){
+    if (postTextInput.value === "" || titleText.value === ""){
         console.log("Not read properly. Please fill each input field of form 😀")
     }
     else{
         console.log(currentUser)
         console.log(titleText.value)
-        console.log(textInput.value)
+        console.log(postTextInput.value)
         console.log(makeTimeStamp())
-        createPost(currentUser,titleText.value,textInput.value)
+        createPost(currentUser,titleText.value,postTextInput.value)
     }
 
 }
 
 submitBtn.addEventListener('click',checkForm)
 
-//reads from form input
+/* //reads from form input
 function createPost(user,title,message){
     console.log(`Post is now ${post}`)
     const newDiv = document.createElement("div")
@@ -115,7 +146,7 @@ function showPosts(post){
     latestDiv.appendChild(newDiv)
 }
 
-postArray.forEach(showPosts)
+postArray.forEach(showPosts) */
 
 function makeTimeStamp(){
     const dateStamp = new Date();

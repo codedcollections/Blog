@@ -66,7 +66,7 @@ Bygg en bloggplattform som innehåller följande delar:
                 </ul>
             </div>
         </div> -->
-        <div class="latest l-grid--3">
+        <!-- <div class="latest l-grid--3">
             <div class="post-test">
                 <div class="update">
                     <p class="edit">&#10000;</p>
@@ -147,9 +147,15 @@ Bygg en bloggplattform som innehåller följande delar:
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <form>
+        </div> -->
+        <form class="log-in">
+            <label for="password">Write your username:</label>
+            <input type="text" name="user-name" id="user-name" placeholder="username...">
+            <label for="password">Write your password:</label>
+            <input type="password" name="password" id="password" placeholder="password...">
+            <input type="submit" value="Login" id="log-in">
+        </form>
+        <form class="write-post">
             <input type="radio" name="user" id="adam" value="Adam">
             <label for="adam">Adam</label>
             <br>
@@ -158,7 +164,7 @@ Bygg en bloggplattform som innehåller följande delar:
             <br>
             <input type="text" name="title" id="title" placeholder="title of post">
             <br>
-            <textarea name="text-input" id="text-input" placeholder="Add text"></textarea>
+            <textarea name="text-input" id="post-text-input" placeholder="Add text"></textarea>
             <br>
             <input type="reset">
             <input type="submit" value="Submit" id="post">
