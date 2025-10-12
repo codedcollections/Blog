@@ -23,13 +23,20 @@ class Users {
 
 class Posts extends Users{
 
-    constructor(postID, date, title, postText, comments=[], userID, userName, password){
+    constructor(postID, date, title, postText, userID, userName, password, comments=[]){
         super(userID,userName, password)
         this.postID = postID
         this.date = date
         this.title = title
         this.postText = postText
         this.comments = comments
+    }
+    addComment(comment){
+        this.comments.push(comment)
+        return this.comments
+    }
+    printPost(){
+        return `From Post object there postID ${this.postID} date ${this.date} title ${this.title} postText ${this.postText} comment ${JSON.stringify(this.comments)} ${this.userID} and ${this.userName} and ${this.password}`
     }
 }
 

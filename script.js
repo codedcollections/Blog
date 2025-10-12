@@ -15,7 +15,7 @@ Bygg en bloggplattform som innehåller följande delar:
 4. **Responsiv Design:**
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 */
-import {Users} from './assets/classes/classes.js';
+import {Users,Posts,Comments} from './assets/classes/classes.js';
 
 //Add info here to Class
 /*
@@ -24,7 +24,7 @@ Not in declaration of the class
  */
 
 
-const postArray = [
+/* const postArray = [
     {
         title: "title of post",
         text: "aksa dladksak da lkds dlsakalkdalkdslkdaalksdlkas dlka dlka dsald ksal dlksadlkadlksalkdak d"
@@ -33,7 +33,7 @@ const postArray = [
         title: "second post",
         text: "aksld masdlm saakl dmkdlamakslm dlksa dmsa dsam ldam dklsam dakldmsldamdkd almldsk"
     }
-]
+] */
 const editModeBtn = document.querySelector(".edit-mode")
 const titleText = document.querySelector("#title")
 const postTextInput = document.querySelector("#post-text-input")
@@ -43,6 +43,7 @@ const logInBtn = document.querySelector("#log-in")
 const userNameInput = document.querySelector("#user-name")
 const passwordInput = document.querySelector("#password")
 let userArray = []
+let postArray = []
 //0 = no specific user
 let currentUserIndex = 0
 
@@ -52,6 +53,13 @@ console.log(user1.printUsers())
 userArray.push(user1)
 console.log(`array contains: ${userArray.length} item(s)`)
 
+const dateStamp = new Date();
+const alternativeDate =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
+
+const newComment = new Comments("this is a comment",alternativeDate,1,"Adam","111")
+const newPost = new Posts(1,alternativeDate,"title","start post text end",1,"Adam","111")
+newPost.addComment(newComment)
+console.log(newPost.printPost())
 
 function checkLogIn(e){
     e.preventDefault()
@@ -60,7 +68,7 @@ function checkLogIn(e){
 
     const user = userArray.find((element) => element.userName === nameCheck);
     console.log(`username is seen as ${userNameInput.value} and password as ${passwordInput.value}`)
-    //console.log(`namecheck is ${nameCheck} and password is ${passwordCheck} and user is seen as ${user.printUsers()}`)
+
     if(!user){
         console.log(console.log("username or password is incorrect"))
     }
@@ -112,6 +120,7 @@ function checkForm(e){
 }
 
 submitBtn.addEventListener('click',checkForm)
+
 
 /* //reads from form input
 function createPost(user,title,message){
