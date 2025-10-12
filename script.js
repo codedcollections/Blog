@@ -15,6 +15,17 @@ Bygg en bloggplattform som innehåller följande delar:
 4. **Responsiv Design:**
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 */
+import {Users} from './assets/classes/classes.js';
+
+//Add info here to Class
+/*
+OBS! Any additional input from user needs to be a part of the code below
+Not in declaration of the class
+ */
+const post1 = new Users(1,"Adam")
+console.log(post1.shareAMessage("Let's write a message here using Users class"))
+console.log(post1.printUsers())
+
 const postArray = [
     {
         title: "title of post",
@@ -146,29 +157,3 @@ function storeLocally(){
 localBtn.addEventListener('click', storeLocally)
 
 
-class Post {
-    constructor(userID, userName)
-    {
-        this.userID = userID;
-        this.userName = userName;
-    }
-    shareAMessage(message){
-        return `${message}`
-    }
-    addID(){
-        return this.userID ++
-    }
-    getClassParts(){
-        return `Allt från klass Post är ${this.userID} och ${this.userName}`
-    }
-
-}
-
-//Add info here to Class
-/*
-OBS! Any additional input from user needs to be a part of the code below
-Not in declaration of the class
- */
-const post1 = new Post(1,"Adam")
-console.log(post1.shareAMessage("Let's write a message here"))
-console.log(post1.getClassParts())
