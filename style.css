@@ -225,6 +225,13 @@ header{
     background-color: rgb(106, 212, 247);
     cursor:pointer;
 }
+.delete-btn{
+    width: 1rem;
+    height: 1rem;
+}
+.delete-btn:hover{
+    background-color: lightblue;
+}
 
 /* 
 .l-grid--3{
