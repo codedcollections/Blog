@@ -18,7 +18,7 @@ let postArray =[
     {
         "author":"Adam",
         "title":"My first post",
-        "postContent":"Wheren to begin? Until next time!",
+        "postContent":"Wheren to begin? Until next time! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio.",
         "date":dateAndTime
     }
 ]
@@ -26,13 +26,13 @@ const AllPostsContainer = document.querySelector(".all-posts")
 function renderPost(postObject){
     //Holds all information about a post
     const postContainer = document.createElement("div")
-    postContainer.className = "post"
+    postContainer.className = "post l-flex l-flex--down"
     //div for delete button
     const deleteContainer = document.createElement("div")
-    deleteContainer.className = "delete-div"
+    deleteContainer.className = "delete-div l-flex l-flex--end"
     const deleteBtn = document.createElement("img")
     deleteBtn.src = "assets/symbols/trash.svg"
-    deleteBtn.alt = "trash can symbol"
+    deleteBtn.alt = "trash can icon"
     deleteBtn.className = "delete-btn"
     deleteBtn.addEventListener('click',()=>{postContainer.remove()})
     deleteContainer.appendChild(deleteBtn)
@@ -56,17 +56,45 @@ function renderPost(postObject){
     postContainer.appendChild(postText)
 
     const likesContainer = document.createElement("div")
-    likesContainer.className = "likes-div"
+    likesContainer.className = "likes-div l-flex"
 
     const likeBtn = document.createElement("button")
-    likeBtn.textContent = 0
-    likeBtn.addEventListener('click',()=>{likeBtn.textContent++})
+    likeBtn.className="like-btn l-flex"
+    const likeCount = document.createElement("span")
+    likeCount.className="like-num"
+    likeCount.textContent = 0
+    likeBtn.addEventListener('click',()=>{likeCount.textContent++})
+    likeBtn.appendChild(likeCount)
+    const likeSymbol = document.createElement("img")
+    likeSymbol.src = "assets/symbols/like.svg"
+    likeSymbol.alt = "thumbs up icon"
+    likeSymbol.className = "reaction-btn"
+    likeBtn.appendChild(likeSymbol)
     likesContainer.appendChild(likeBtn)
+
     const dislikeBtn = document.createElement("button")
+    dislikeBtn.className ="dislike-btn l-flex"
+    const dislikeCount = document.createElement("span")
+    dislikeCount.className="dislike-num"
+    dislikeCount.textContent = 0
+    dislikeBtn.addEventListener('click',()=>{dislikeCount.textContent--})
+    dislikeBtn.appendChild(dislikeCount)
+    const dislikeSymbol = document.createElement("img")
+    dislikeSymbol.src = "assets/symbols/dislike.svg"
+    dislikeSymbol.alt = "thumbs down icon"
+    dislikeSymbol.className = "reaction-btn"
+    dislikeBtn.appendChild(dislikeSymbol)
+    likesContainer.appendChild(dislikeBtn)
+
+
+
+/*     const dislikeBtn = document.createElement("button")
     dislikeBtn.textContent = 0
     dislikeBtn.addEventListener('click',()=>{dislikeBtn.textContent--})
-    likesContainer.appendChild(dislikeBtn)
+    likesContainer.appendChild(dislikeBtn) */
+    console.log(likesContainer)
     postContainer.appendChild(likesContainer)
+    console.log(postContainer)
     AllPostsContainer.appendChild(postContainer)
 }
 
