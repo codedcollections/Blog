@@ -10,15 +10,22 @@ let userArray = [
         "name": "Nora"
     }
 ]
-//place to add posts in 
+//place to add posts in
+
+const dateStamp = new Date();
+const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
+
 let postArray =[
     {
         "author":"Adam",
         "title":"My first post",
         "postContent":"Wheren to begin? Until next time!",
-        "date":""
+        "date":dateAndTime
     }
 ]
+
+postArray.forEach((element) => console.log(element))
+console.log("end of forEach")
 const postContainer = document.querySelector(".posts")
 
 const newDiv = document.createElement("div")
