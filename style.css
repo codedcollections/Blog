@@ -212,9 +212,11 @@ h1,h2,h3,h4,h5,h6{
 }
 .l-flex--down{
     flex-direction: column;
+}
+.l-flex--center{
+    justify-content: center;
     align-items: center;
 }
-
 header{
     background-color: white;
     padding:1rem 2rem;
@@ -234,8 +236,9 @@ header{
     cursor:pointer;
 }
 .post{
+    background-color: #fbffad;
     width:70%;
-    padding: 2rem;
+    padding: 1rem;
 }
 .delete-div{
     height:2rem;
@@ -248,15 +251,20 @@ header{
 }
 .delete-btn:hover{
     background-color: rgb(255, 50, 50);
+    cursor:pointer;
 }
 .post-title{
     margin-bottom:0.5rem;
 }
 .post-info{
     margin-bottom:1rem;
+    font-style: italic;
+    font-weight: bold;
+    color:#333333;
 }
 .post-text{
     margin-bottom:1.5rem;
+    
 }
 .likes-div{
     gap:1rem;
@@ -265,14 +273,33 @@ header{
     width:1rem;
     height:1rem;
 }
+
 .like-btn{
     gap:0.2rem;
+    padding:0.5rem;
+    border-radius:0.5rem;
+    background-color:rgb(180, 255, 200);
+    border:none;
+}
+.like-btn:hover{
+    background-color:rgb(104, 255, 99);
+    cursor:pointer;
 }
 .dislike-btn{
     gap:0.2rem;
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:none;
+}
+.dislike-btn:hover{
+    background-color:rgb(255, 139, 190);
+    cursor: pointer;
 }
 .add-user{
     max-width: 70%;
+}
+.post-text-input{
+    height:4rem;
 }
 /* 
 .l-grid--3{

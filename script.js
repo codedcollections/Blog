@@ -18,7 +18,7 @@ let postArray =[
     {
         "author":"Adam",
         "title":"My first post",
-        "postContent":"Wheren to begin? Until next time! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio.",
+        "postContent":"Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",
         "date":dateAndTime
     }
 ]
@@ -46,7 +46,7 @@ function renderPost(postObject){
     const postInfo = document.createElement("p")
     //contains date and name of post author
     postInfo.className = "post-info"
-    const postedBy = `Posted by ${postObject.author} ${postObject.date}`
+    const postedBy = `posted by ${postObject.author} ${postObject.date}`
     postInfo.textContent = postedBy
     postContainer.appendChild(postInfo)
 

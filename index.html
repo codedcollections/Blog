@@ -8,35 +8,36 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-    <h1>Blogdot</h1>
-    <h2>A place to write down and share your thoughts</h2>
+    <div class="wrapper l-flex l-flex--down l-flex--center">
+        <h1>Blogdot</h1>
+        <h2>A place to write down and share your thoughts</h2>
 
-    <div class="all-posts">
+        <div class="all-posts l-flex l-flex--down l-flex--center">
+        </div>
 
+        <form class="add-user l-flex l-flex--down">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" placeholder="username...">
+            <br>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="password...">
+            <br>
+            <input type="text" name="name" id="name" placeholder="your name">
+            <br>
+            <textarea name="post-text-input" id="post-text-input" placeholder="what would you like to share?"></textarea>
+            <br>
+            <label for="date">Add a relevant date to your post:</label>
+            <br>
+            <input type="datetime-local" name="date" id="date">
+            <br>
+            <input type="reset" value="Reset">
+            <input type="submit" value="Submit">
+            <div class="error-container"></div>
+        </form>
+
+        <div class="posts">
+        </div>
     </div>
-
-    <form class="add-user l-flex l-flex--down">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" placeholder="username...">
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" placeholder="password...">
-        <br>
-        <input type="text" name="name" id="name" placeholder="your name">
-        <br>
-        <textarea name="post-text-input" id="post-text-input" placeholder="what would you like to share?"></textarea>
-        <br>
-        <label for="date">Add a relevant date to your post:</label>
-        <br>
-        <input type="datetime-local" name="date" id="date">
-        <br>
-        <input type="reset" value="Reset">
-        <input type="submit" value="Submit">
-        <div class="error-container"></div>
-    </form>
-
-    <div class="posts">
-
-    </div>
+    <!--wrapper end-->
 </body>
 </html>
