@@ -205,6 +205,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .l-flex--apart{
     justify-content: space-between;
+    align-items: center;
 }
 .l-flex--end{
     justify-content: end;
@@ -216,6 +217,9 @@ h1,h2,h3,h4,h5,h6{
 .l-flex--center{
     justify-content: center;
     align-items: center;
+}
+.hidden{
+    display:none;
 }
 header{
     background-color: white;
@@ -236,7 +240,8 @@ header{
     cursor:pointer;
 }
 .post{
-    background-color: #fbffad;
+    background-color: #ecfaff;
+    box-shadow: inset 0rem 0.2rem 2rem 0.1rem rgb(226, 234, 255);
     width:70%;
     padding: 1rem;
 }
@@ -247,7 +252,7 @@ header{
     width: 2rem;
     height: 2rem;
     border-radius: 0.2rem;
-    background-color: rgb(254, 112, 150);
+    background-color: rgb(255, 139, 190);
 }
 .delete-btn:hover{
     background-color: rgb(255, 50, 50);
