@@ -24,6 +24,7 @@
 
         <!--form for user input for new posts-->
         <form class="add-user l-flex l-flex--down">
+            <h2>Write a post to share:</h2>
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username...">
             <br>
@@ -40,8 +41,11 @@
             <br>
             <input type="datetime-local" name="date" id="date"> -->
             <br>
-            <input type="reset" id="reset" value="Reset">
-            <input type="submit" id="submit" value="Submit">
+            <div class="form-btn-div l-flex">
+                <input type="reset" id="reset" value="Reset">
+                <input type="submit" id="submit" value="Submit">
+            </div>
+            
             <div class="error-container"></div>
         </form>
 
