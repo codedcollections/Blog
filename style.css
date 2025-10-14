@@ -152,24 +152,18 @@ Bygg en bloggplattform som innehåller följande delar:
 4. **Responsiv Design:**
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 */
-@media only screen and (max-width: 300px) {
-  body {
-    color:red;
-  }
-  .l-grid--3{
-    display: grid;
-    grid-template-columns: 1fr;
-    background-color: blue;
-}
-}
+
+
 .wrapper{
     width: 95%;
     margin: 0 auto;
 }
 
 body{
-    background-color: #fffefc;
-    background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png");
+    background-color: #edf2ff;
+    background: linear-gradient(180deg,rgba(237, 242, 255, 1) 0%, rgba(222, 219, 255, 1) 100%);
+    height:100vh;
+  /*   background-image: url("https://www.transparenttextures.com/patterns/beige-paper.png"); */
 }
 
 p,li,a{
@@ -179,16 +173,16 @@ h1{
     font-size: 2.5rem;
 }
 h2{
-    font-size: 2.2rem;
+    font-size: 2rem;
 }
 h3{
-    font-size: 2.0rem;
-}
-h4{
     font-size: 1.8rem;
 }
-h5{
+h4{
     font-size: 1.5rem;
+}
+h5{
+    font-size: 1.3rem;
 }
 h6{
     font-size: 1.2rem;
@@ -205,11 +199,27 @@ h1,h2,h3,h4,h5,h6{
 }
 .l-flex--apart{
     justify-content: space-between;
+    align-items: center;
 }
-
+.l-flex--end{
+    justify-content: end;
+    align-items: center;
+}
+.l-flex--down{
+    flex-direction: column;
+}
+.l-flex--center{
+    justify-content: center;
+    align-items: center;
+}
+.hidden{
+    display:none;
+}
 header{
     background-color: white;
-    padding:1rem 2rem;
+    padding:1rem 10rem;
+    box-shadow: 0 -1rem 1rem 1rem rgb(140, 140, 140);
+    margin-bottom:5rem;
 }
 .svg{
     width:2rem;
@@ -219,13 +229,101 @@ header{
 .edit-mode{
     border:none;
     border-radius: 0.5rem;
-    padding:0.1rem;
+    padding:0.8rem;
+    background-color:rgb(180, 255, 200);
 }
 .edit-mode:hover{
     background-color: rgb(106, 212, 247);
     cursor:pointer;
 }
+.post{
+    background-color: #fffbe4;
+    /* box-shadow: inset 0.02rem 0.02rem 0.8rem 0.1rem rgb(252, 253, 195); */
+    width:70%;
+    padding: 1rem;
+}
+.delete-div{
+    height:2rem;
+}
+.delete-btn{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 0.2rem;
+    background-color: rgb(255, 139, 190);
+}
+.delete-btn:hover{
+    background-color: rgb(255, 50, 50);
+    cursor:pointer;
+}
+.post-title{
+    margin-bottom:0.5rem;
+}
+.post-info{
+    margin-bottom:1rem;
+    font-style: italic;
+    font-weight: bold;
+    color:#333333;
+}
+.post-text{
+    margin-bottom:1.5rem;
+    
+}
+.likes-div{
+    gap:1rem;
+}
+.reaction-btn{
+    width:1rem;
+    height:1rem;
+}
 
+.like-btn{
+    gap:0.2rem;
+    padding:0.5rem;
+    border-radius:0.5rem;
+    background-color:rgb(180, 255, 200);
+    border:none;
+}
+.like-btn:hover{
+    background-color:rgb(104, 255, 99);
+    cursor:pointer;
+}
+.dislike-btn{
+    gap:0.2rem;
+    padding:0.5rem;
+    border-radius:0.5rem;
+    border:none;
+}
+.dislike-btn:hover{
+    background-color:rgb(255, 139, 190);
+    cursor: pointer;
+}
+.add-user{
+    max-width: 50vh;
+    background-color: white;
+    border-radius:1rem;
+    padding:3rem;
+}
+.form-btn-div{
+    gap:1.5rem;
+    height: 2rem;
+}
+#reset{
+    border:none;
+    border-radius:0.5rem;
+}
+#reset:hover{
+    background-color:rgb(255, 139, 190);
+}
+#submit{
+    border:none;
+    border-radius:0.5rem;
+}
+#submit:hover{
+    background-color:rgb(180, 255, 200);
+}
+.post-text-input{
+    height:4rem;
+}
 /* 
 .l-grid--3{
 display: grid;
@@ -324,3 +422,15 @@ p span{
     flex-direction: column;
     width: 100%;
 } */
+
+@media only screen and (max-width: 850px) {
+  body {
+    background:none;
+    background-color:red;
+    color:red;
+  }
+  header{
+    padding: 1rem 1rem;
+}
+
+}

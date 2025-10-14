@@ -3,174 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Blogdot</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" type="module" defer></script>
+    <script src="script.js" defer></script>
 </head>
-
-<!--
-### **1. Strukturera projektet**
-
-Bygg en bloggplattform som innehåller följande delar:
-
-1. **Startsida:**
-    - Visa de senaste blogginläggen på en startsida.
-    - Varje blogginlägg ska visa titel, författare, datum och innehåll.
-2. **Skapa inlägg:**
-    - Skapa en form där användaren kan skriva en titel och innehåll för sitt blogginlägg.
-    - Använd JavaScript för att hantera skapandet och visningen av nya inlägg.
-3. **Interaktivitet:**
-    - Skapa dynamisk funktionalitet så att användaren kan skapa nya inlägg utan att behöva ladda om sidan.
-    - När ett inlägg är skapat ska det visas direkt på sidan.
-4. **Responsiv Design:**
-    - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
--->
 <body>
     <header class="l-flex l-flex--apart">
-        <h2>blogs</h2>
-        <button class="edit-mode"><img src="assets/symbols/edit.svg" alt="edit mode icon" class="svg" id="edit-mode-icon"></button>
+        <div class="header-introduction">
+            <h1>Blogdot</h1>
+            <p>- "The space to write down and share your thoughts"</p>
+        </div>
+        <img src="assets/symbols/edit.svg" alt="edit icon" class="edit-mode svg" id="edit-mode">
     </header>
+    
     <div class="wrapper">
-        <h1>Blogs</h1>
-        <h2>latest posts</h2>
 
-       <!--  <div class="post-test">
-            <div class="update">
-                <p class="edit">&#10000;</p>
-                <p class="remove">&#10006;</p>
-            </div>
-            <h2 class="post-title">Post title lorem ipsum</h2>
-            <div class="post-user-info">
-                <p class="time">2025-10-02 14:54</p>
-                <p class="user-name">Posted by Margareta</p>
-            </div>
-            <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum obcaecati officiis!</p>
-            <div class="post-info">
-                <div class="likes">
-                    <p class="heart">&hearts;</p>
-                    <p class="num-likes">0</p>
-                </div>
-                <div class="likes comments">
-                    <p>&#128488;</p>
-                    <p>3</p>
-                </div>
-                <form class="comment">
-                    <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
-                    <input type="submit" value="Add comment">
-                </form>
-                <h3>Comments:</h3>
-                <ul>
-                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                    <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                </ul>
-            </div>
-        </div> -->
-        <!-- <div class="latest l-grid--3">
-            <div class="post-test">
-                <div class="update">
-                    <p class="edit">&#10000;</p>
-                    <p class="remove">&#10006;</p>
-                </div>
-                <h2 class="post-title">Post title lorem ipsum</h2>
-                <div class="post-user-info">
-                    <p class="time">2025-10-02 14:54</p>
-                    <p class="user-name">Posted by Margareta</p>
-                </div>
-                <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum
-                    velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum
-                    obcaecati officiis!</p>
-                <div class="post-info">
-                    <div class="likes">
-                        <p class="heart">&hearts;</p>
-                        <p class="num-likes">0</p>
-                    </div>
-                    <div class="likes comments">
-                        <p>&#128488;</p>
-                        <p>3</p>
-                    </div>
-                    <form class="comment">
-                        <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
-                        <input type="submit" value="Add comment">
-                    </form>
-                    <h3>Comments:</h3>
-                    <ul>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="post-test">
-                <div class="update">
-                    <p class="edit">&#10000;</p>
-                    <p class="remove">&#10006;</p>
-                </div>
-                <h2 class="post-title">Post title lorem ipsum</h2>
-                <div class="post-user-info">
-                    <p class="time">2025-10-02 14:54</p>
-                    <p class="user-name">Posted by Margareta</p>
-                </div>
-                <p class="post-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus laborum provident voluptatum
-                    velit ducimus dolore, eos, sit saepe vel voluptatibus eum expedita similique ex culpa pariatur quos, ipsum
-                    obcaecati officiis!</p>
-                <div class="post-info">
-                    <div class="likes">
-                        <p class="heart">&hearts;</p>
-                        <p class="num-likes">0</p>
-                    </div>
-                    <div class="likes comments">
-                        <p>&#128488;</p>
-                        <p>3</p>
-                    </div>
-                    <form class="comment">
-                        <textarea name="comment" id="comment" placeholder="Add comment..."></textarea>
-                        <input type="submit" value="Add comment">
-                    </form>
-                    <h3>Comments:</h3>
-                    <ul>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                        <li><span class="comment-log">userName 2025-10-09 :</span> Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Deserunt perspiciatis quasi possimus at sunt amet dignissimos, ratione nobis quos
-                            deleniti explicabo molestiae architecto fugiat nesciunt earum sed reprehenderit impedit? Pariatur?</li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
-        <form class="log-in">
-            <label for="password">Write your username:</label>
-            <input type="text" name="user-name" id="user-name" placeholder="username...">
-            <label for="password">Write your password:</label>
+        <!--Container for all posts-->
+        <div class="all-posts l-flex l-flex--down l-flex--center">
+        </div>
+
+        <!--form for user input for new posts-->
+        <form class="add-user l-flex l-flex--down">
+            <h2>Write a post to share:</h2>
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" placeholder="username...">
+            <br>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="password...">
-            <input type="submit" value="Login" id="log-in">
-        </form>
-        <form class="write-post">
-            <input type="radio" name="user" id="adam" value="Adam">
-            <label for="adam">Adam</label>
             <br>
-            <input type="radio" name="user" id="nora" value="Nora">
-            <label for="nora">Nora</label>
+            <label for="name">Your name (this will show in posts)</label>
+            <input type="text" name="name" id="name" placeholder="your name">
             <br>
-            <input type="text" name="title" id="title" placeholder="title of post">
+            <label for="post-text-input">Your post</label>
+            <textarea name="post-text-input" id="post-text-input" placeholder="what would you like to share?"></textarea>
+            <!-- <br>
+            <label for="date">Add a relevant date to your post:</label>
             <br>
-            <textarea name="text-input" id="post-text-input" placeholder="Add text"></textarea>
+            <input type="datetime-local" name="date" id="date"> -->
             <br>
-            <input type="reset">
-            <input type="submit" value="Submit" id="post">
+            <div class="form-btn-div l-flex">
+                <input type="reset" id="reset" value="Reset">
+                <input type="submit" id="submit" value="Submit">
+            </div>
+            
+            <div class="error-container"></div>
         </form>
 
-        <button class="local-btn">Store/Delete</button>
+        <div class="posts">
+        </div>
     </div>
+    <!--wrapper end-->
 </body>
 </html>
