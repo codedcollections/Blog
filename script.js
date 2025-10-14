@@ -2,12 +2,20 @@ let userArray = [
     {
         "userID": 1,
         "userName": "myNameIsAdam",
+        "password": "111",
         "name": "Adam",
     },
     {
         "userID": 2,
         "userName": "CallMeNora",
+        "password": "112",
         "name": "Nora"
+    },
+    {
+        "userID": 3,
+        "userName": "A",
+        "password": "1",
+        "name": "Amelia",
     }
 ]
 
@@ -24,6 +32,11 @@ let postArray =[
 ]
 
 const AllPostsContainer = document.querySelector(".all-posts")
+
+//from add post form
+const usernameInput = document.querySelector("#username")
+const passwordInput = document.querySelector("#password")
+const postSubmitBtn = document.querySelector("#add-post-submit")
 
 function renderPost(postObject){
     //Holds all information about a post
@@ -101,7 +114,40 @@ function renderPost(postObject){
 }
 
 postArray.forEach((element) => renderPost(element))
+let correctInputIndex = 0
+function isUser(e){
+    e.preventDefault()
+    console.log(usernameInput.value)
+    console.log(passwordInput.value)
 
+    userArray.forEach(compareInput)
+
+    console.log(`I can now see that ${correctInputIndex}`)
+    if(correctInputIndex ===1){
+        console.log("move on")
+    }
+    else{
+        correctInputIndex = 0
+    }
+}
+
+function compareInput(item){
+    if (item.userName === usernameInput.value && item.password === passwordInput.value){
+        console.log("it is true")
+        console.log(`${item.userName}`)
+        console.log(`${item.password}`)
+        correctInputIndex++
+    }
+    else{
+        console.log("nope not a user")
+        console.log(item.userName)
+        console.log(item.password)
+    }
+    console.log(`after if comparison is ${correctInputIndex}`)
+    return (correctInputIndex)
+}
+
+postSubmitBtn.addEventListener('click',isUser)
 function makeTimeStamp(){
     const dateStamp = new Date();
     const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`

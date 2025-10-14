@@ -314,11 +314,11 @@ header{
 #reset:hover{
     background-color:rgb(255, 139, 190);
 }
-#submit{
+#add-post-submit{
     border:none;
     border-radius:0.5rem;
 }
-#submit:hover{
+#add-post-submit:hover{
     background-color:rgb(180, 255, 200);
 }
 .post-text-input{
