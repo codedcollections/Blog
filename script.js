@@ -24,6 +24,7 @@ let postArray =[
 ]
 
 const AllPostsContainer = document.querySelector(".all-posts")
+
 function renderPost(postObject){
     //Holds all information about a post
     const postContainer = document.createElement("div")
@@ -99,9 +100,6 @@ function renderPost(postObject){
     AllPostsContainer.appendChild(postContainer)
 }
 
-/* postArray.forEach((element) => console.log(element))
-console.log("end of forEach") */
-
 postArray.forEach((element) => renderPost(element))
 
 function makeTimeStamp(){
@@ -110,29 +108,6 @@ function makeTimeStamp(){
     console.log("You are in makeTimeStamp function now")
     return dateAndTime
 }
-
-/* const postContainer = document.querySelector(".posts")
-const newDiv = document.createElement("div")
-newDiv.style.backgroundColor="red"
-const newDeleteBtn = document.createElement("button")
-newDeleteBtn.textContent ="delete the div"
-newDeleteBtn.addEventListener('click',()=>{
-    newDiv.remove()
-})
-newDiv.appendChild(newDeleteBtn)
-
-const newLikeBtn = document.createElement("button")
-newLikeBtn.textContent = 0
-newLikeBtn.addEventListener('click',()=>{newLikeBtn.textContent++})
-newDiv.appendChild(newLikeBtn)
-
-const newDislikeBtn = document.createElement("button")
-newDislikeBtn.textContent = 0
-newDislikeBtn.addEventListener('click',()=>{newDislikeBtn.textContent--})
-newDiv.appendChild(newDislikeBtn)
-    
-postContainer.appendChild(newDiv) */
-
 
 function checkInput(e){
     e.preventDefault()

@@ -16,27 +16,32 @@
         <img src="assets/symbols/edit.svg" alt="edit icon" class="edit-mode svg" id="edit-mode">
     </header>
     
-    <div class="wrapper l-flex l-flex--down l-flex--center">
+    <div class="wrapper">
+
+        <!--Container for all posts-->
         <div class="all-posts l-flex l-flex--down l-flex--center">
         </div>
 
+        <!--form for user input for new posts-->
         <form class="add-user l-flex l-flex--down">
-            <label for="username">Username:</label>
+            <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username...">
             <br>
-            <label for="password">Password:</label>
+            <label for="password">Password</label>
             <input type="password" name="password" id="password" placeholder="password...">
             <br>
+            <label for="name">Your name (this will show in posts)</label>
             <input type="text" name="name" id="name" placeholder="your name">
             <br>
+            <label for="post-text-input">Your post</label>
             <textarea name="post-text-input" id="post-text-input" placeholder="what would you like to share?"></textarea>
-            <br>
+            <!-- <br>
             <label for="date">Add a relevant date to your post:</label>
             <br>
-            <input type="datetime-local" name="date" id="date">
+            <input type="datetime-local" name="date" id="date"> -->
             <br>
-            <input type="reset" value="Reset">
-            <input type="submit" value="Submit">
+            <input type="reset" id="reset" value="Reset">
+            <input type="submit" id="submit" value="Submit">
             <div class="error-container"></div>
         </form>
 
