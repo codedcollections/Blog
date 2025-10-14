@@ -11,17 +11,18 @@ let userArray = [
     }
 ]
 
-const dateStamp = new Date();
-const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
+/* const dateStamp = new Date();
+const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}` */
 
 let postArray =[
     {
         "author":"Adam",
         "title":"My first post",
         "postContent":"Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",
-        "date":dateAndTime
+        "date": makeTimeStamp()
     }
 ]
+
 const AllPostsContainer = document.querySelector(".all-posts")
 function renderPost(postObject){
     //Holds all information about a post
@@ -102,6 +103,13 @@ function renderPost(postObject){
 console.log("end of forEach") */
 
 postArray.forEach((element) => renderPost(element))
+
+function makeTimeStamp(){
+    const dateStamp = new Date();
+    const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
+    console.log("You are in makeTimeStamp function now")
+    return dateAndTime
+}
 
 /* const postContainer = document.querySelector(".posts")
 const newDiv = document.createElement("div")
