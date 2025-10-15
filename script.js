@@ -49,7 +49,10 @@ function renderPost(postObject){
     deleteBtn.src = "assets/symbols/trash.svg"
     deleteBtn.alt = "trash can icon"
     deleteBtn.className = "delete-btn"
-    deleteBtn.addEventListener('click',()=>{postContainer.remove()})
+    deleteBtn.addEventListener('click',()=>{
+        postContainer.remove()
+        deletePost(postObject)
+    })
     deleteContainer.appendChild(deleteBtn)
     postContainer.appendChild(deleteContainer)
     //information presented in post
@@ -78,7 +81,9 @@ function renderPost(postObject){
     const likeCount = document.createElement("span")
     likeCount.className="like-num"
     likeCount.textContent = postObject.likes
-    likeBtn.addEventListener('click',()=>{likeCount.textContent = postObject.addLike()})
+    likeBtn.addEventListener('click',()=>{
+        postObject.addLike()
+        likeCount.textContent = postObject.likes})
     likeBtn.appendChild(likeCount)
     const likeSymbol = document.createElement("img")
     likeSymbol.src = "assets/symbols/like.svg"
@@ -92,7 +97,9 @@ function renderPost(postObject){
     const dislikeCount = document.createElement("span")
     dislikeCount.className="dislike-num"
     dislikeCount.textContent = postObject.dislikes
-    dislikeBtn.addEventListener('click',()=>{dislikeCount.textContent = postObject.addDislike()})
+    dislikeBtn.addEventListener('click',()=>{
+        postObject.addDislike()
+        dislikeCount.textContent = postObject.dislikes})
     dislikeBtn.appendChild(dislikeCount)
     const dislikeSymbol = document.createElement("img")
     dislikeSymbol.src = "assets/symbols/dislike.svg"
@@ -135,13 +142,16 @@ function isUser(e){
         postArray.push(addedPost)
         AllPostsContainer.innerHTML =""
         postArray.forEach((element) => renderPost(element))
+        currentUser=0
     }
     else{
         addFormError.appendChild(eMessage)
         console.log("incorrect username or password")
-/*         
-        currentUser = 0 */
     }
+    restorePlaceholder()
+}
+function restorePlaceholder(){
+    usernameInput.value= usernameInput.ariaPlaceholder
     usernameInput.value= usernameInput.ariaPlaceholder
     passwordInput.value= passwordInput.ariaPlaceholder
     titleInput.value= titleInput.ariaPlaceholder
@@ -174,6 +184,12 @@ function createPost(user){
     usernameInput.value
     passwordInput.value */
 
+}
+function deletePost(postObject){
+    const itemIndex = postArray.indexOf(postObject)
+    if (itemIndex !== -1) {
+    postArray.splice(itemIndex, 1);
+    }
 }
 
 postSubmitBtn.addEventListener('click',isUser)
