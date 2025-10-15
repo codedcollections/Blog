@@ -39,6 +39,7 @@ const postTextInput = document.querySelector("#post-text-input")
 const postSubmitBtn = document.querySelector("#add-post-submit")
 const addFormError = document.querySelector(".add-post-error")
 let currentUser = 0
+let editIndex = 0
 
 function renderPost(postObject){
     //Holds all information about a post
@@ -121,7 +122,7 @@ function renderPost(postObject){
             const commentDeleteBtn = document.createElement("img")
             commentDeleteBtn.src="assets/symbols/trash.svg"
             commentDeleteBtn.alt="trash can icon"
-            commentDeleteBtn.className="comment-btn"
+            commentDeleteBtn.className="comment-btn editable"
             commentDeleteBtn.addEventListener('click',()=>{
                 console.log(`this is item: ${item}`)
                 postObject.removeComment(item)
@@ -160,7 +161,17 @@ function renderPost(postObject){
         const commentDeleteBtn = document.createElement("img")
         commentDeleteBtn.src="assets/symbols/trash.svg"
         commentDeleteBtn.alt="trash can icon"
-        commentDeleteBtn.className="comment-btn"
+        //on click of edit mode index is changed
+        if (editIndex === 1){
+            console.log("in edit index if ")
+            commentDeleteBtn.className = "comment-btn editable"
+            
+        }
+        else{
+            console.log("in second if statement")
+            commentDeleteBtn.className = "comment-btn editable hidden"
+        }
+        /* commentDeleteBtn.className="comment-btn editable" */
         commentDeleteBtn.addEventListener('click',()=>{
             postObject.removeComment(commentObject)
             newComment.remove()
@@ -276,9 +287,11 @@ function readOrEdit(){
     interactiveElements.forEach(ShowAndHide)
     if (editModeBtn.src.includes("assets/symbols/edit.svg")){
         editModeBtn.src = "assets/symbols/cross.svg"
+        editIndex = 1
     }
     else{
         editModeBtn.src = "assets/symbols/edit.svg"
+        editIndex = 0
     }
 }
 function ShowAndHide(item){
