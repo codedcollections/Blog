@@ -1,4 +1,4 @@
-import { Posts } from "./assets/classes/classes.js";
+import { Posts,Comments } from "./assets/classes/classes.js";
 
 let userArray = [
     {
@@ -23,7 +23,9 @@ let userArray = [
 
 
 const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,- 4)
-
+const firstComment = new Comments("wow häftigt",makeTimeStamp())
+firstPost.addComment(firstComment)
+console.log(JSON.stringify(firstPost))
 let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
@@ -119,16 +121,25 @@ function createCommentForm(){
     commentForm.className="comment-form"
     const commentInput = document.createElement("input")
     commentInput.setAttribute('type', 'text')
-    commentInput.id = "comment"
+    commentInput.className = "comment"
     commentInput.placeholder ="add a comment..."
     const commentSubmitBtn = document.createElement("input")
     commentSubmitBtn.setAttribute('type', 'submit')
     commentSubmitBtn.value ="Comment"
-    commentSubmitBtn.id ="post-comment-btn"
+    commentSubmitBtn.className ="post-comment-btn"
     commentSubmitBtn.addEventListener('click',(e)=>{
         e.preventDefault()
-        const newComment = document.createElement("p")
+        const newComment = document.createElement("div")
+        newComment.className="comment-div"
         newComment.textContent = `Comment made ${makeTimeStamp()}: ${commentInput.value} `
+        const commentDeleteBtn = document.createElement("img")
+        commentDeleteBtn.src="assets/symbols/trash.svg"
+        commentDeleteBtn.alt="trash can icon"
+        commentDeleteBtn.className="comment-btn"
+        commentDeleteBtn.addEventListener('click',()=>{
+            newComment.remove()
+        })
+        newComment.appendChild(commentDeleteBtn)
         commentInput.value=""
         commentContainer.appendChild(newComment)
     })
@@ -140,6 +151,7 @@ function createCommentForm(){
     console.log(commentForm)
     return (commentForm)
 }
+
 function isUser(e){
     e.preventDefault()
 
