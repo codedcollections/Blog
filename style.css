@@ -176,10 +176,11 @@ h1,h2,h3,h4,h5,h6{
     color:rgb(26, 26, 26)
 }
 
-.l-grid--three{
+.l-grid{
     display:grid;
-    grid-template-columns: repeat(3,1fr);
-    gap:1rem;
+    grid-template-columns: repeat(2,1fr);
+    gap:3rem;
+    margin-bottom:5rem;
 }
 .l-flex{
     display:flex;
@@ -230,6 +231,8 @@ header{
     cursor:pointer;
 }
 .post{
+    max-width: 100%;
+    height: 100%;
     background-color: #ffddc2;
     padding: 1rem;
 }
@@ -327,25 +330,45 @@ header{
     color:red;
     margin-top:1rem;
 }
+.comment-form{
+    margin-top:2rem;
+}
+.comment-div{
+    margin-top:1rem;
+}
+.comment-btn{
+    width:0.8rem;
+    height: 0.8rem;
+    padding:0.1rem;
+    border-radius: 0.1rem;
+    background-color: rgb(255, 139, 190);
+}
+.comment-btn:hover{
+    background-color: rgb(255, 50, 50);
+}
 
 @media only screen and (max-width: 950px) {
     header{
         padding: 1rem 1rem;
     }
-    .l-grid--three{
+    .l-grid{
     grid-template-columns: 70%;
     align-items: center;
     justify-content: center;
+    gap:10rem;
     }
     .edit-mode{
         padding:0.1rem;
+    }
+    .post{
+        margin-bottom:2rem;
     }
     .post-text{
         height: 100%;
         overflow-y: auto;
     }
     .form-post{
-        margin:1rem 1rem;
+        margin:5rem 1rem;
     }
 
 }

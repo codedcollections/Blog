@@ -1,4 +1,4 @@
-import { Posts } from "./assets/classes/classes.js";
+import { Posts,Comments } from "./assets/classes/classes.js";
 
 let userArray = [
     {
@@ -23,7 +23,9 @@ let userArray = [
 
 
 const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,- 4)
-
+const firstComment = new Comments("wow häftigt",makeTimeStamp())
+firstPost.addComment(firstComment)
+console.log(JSON.stringify(firstPost))
 let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
@@ -108,9 +110,112 @@ function renderPost(postObject){
     dislikeBtn.appendChild(dislikeSymbol)
     likesContainer.appendChild(dislikeBtn)
 
+    const commentContainer = document.createElement("div")
+    commentContainer.className="comments-div"
+    if(postObject.hasComments()){
+        console.log("saw comments")
+        postObject.comments.forEach(item=>{
+            const oldComment = document.createElement("div")
+            oldComment.className="comment-div"
+            oldComment.innerHTML = `Comment made ${item.date}: ${item.comment} `
+            const commentDeleteBtn = document.createElement("img")
+            commentDeleteBtn.src="assets/symbols/trash.svg"
+            commentDeleteBtn.alt="trash can icon"
+            commentDeleteBtn.className="comment-btn"
+            commentDeleteBtn.addEventListener('click',()=>{
+                console.log(`this is item: ${item}`)
+                postObject.removeComment(item)
+                oldComment.remove()
+                
+            })
+            oldComment.appendChild(commentDeleteBtn)
+            commentContainer.appendChild(oldComment)
+        })
+    }
+    else{
+        console.log("no comment")
+    }
+    const commentForm = document.createElement("form")
+    commentForm.className="comment-form"
+    const commentInput = document.createElement("input")
+    commentInput.setAttribute('type', 'text')
+    commentInput.className = "comment"
+    commentInput.placeholder ="add a comment..."
+    const commentSubmitBtn = document.createElement("input")
+    commentSubmitBtn.setAttribute('type', 'submit')
+    commentSubmitBtn.value ="Comment"
+    commentSubmitBtn.className ="post-comment-btn"
+
+    commentSubmitBtn.addEventListener('click',(e)=>{
+        e.preventDefault()
+        console.log(commentInput.value)
+        console.log((makeTimeStamp()))
+        const commentObject = new Comments((commentInput.value),(makeTimeStamp()))
+        console.log(JSON.stringify(commentObject))
+        postObject.addComment(commentObject)
+        const newComment = document.createElement("div")
+        newComment.className="comment-div"
+        newComment.innerHTML = `Comment made ${commentObject.date}: ${commentObject.comment} `
+        console.log(JSON.stringify(newComment))
+        const commentDeleteBtn = document.createElement("img")
+        commentDeleteBtn.src="assets/symbols/trash.svg"
+        commentDeleteBtn.alt="trash can icon"
+        commentDeleteBtn.className="comment-btn"
+        commentDeleteBtn.addEventListener('click',()=>{
+            postObject.removeComment(commentObject)
+            newComment.remove()
+        })
+        newComment.appendChild(commentDeleteBtn)
+        commentInput.value=""
+        commentContainer.appendChild(newComment)
+    })
+    commentForm.appendChild(commentInput)
+    commentForm.appendChild(commentSubmitBtn)
+    commentForm.appendChild(commentContainer)
+
+    /* const formHTML = createCommentForm() */
+
     postContainer.appendChild(likesContainer)
+    postContainer.appendChild(commentForm)
+    postContainer.appendChild(commentContainer)
     AllPostsContainer.appendChild(postContainer)
 }
+
+/* function createCommentForm(){
+    const commentForm = document.createElement("form")
+    commentForm.className="comment-form"
+    const commentInput = document.createElement("input")
+    commentInput.setAttribute('type', 'text')
+    commentInput.className = "comment"
+    commentInput.placeholder ="add a comment..."
+    const commentSubmitBtn = document.createElement("input")
+    commentSubmitBtn.setAttribute('type', 'submit')
+    commentSubmitBtn.value ="Comment"
+    commentSubmitBtn.className ="post-comment-btn"
+    commentSubmitBtn.addEventListener('click',(e)=>{
+        e.preventDefault()
+        const newComment = document.createElement("div")
+        newComment.className="comment-div"
+        newComment.textContent = `Comment made ${makeTimeStamp()}: ${commentInput.value} `
+        const commentDeleteBtn = document.createElement("img")
+        commentDeleteBtn.src="assets/symbols/trash.svg"
+        commentDeleteBtn.alt="trash can icon"
+        commentDeleteBtn.className="comment-btn"
+        commentDeleteBtn.addEventListener('click',()=>{
+            newComment.remove()
+        })
+        newComment.appendChild(commentDeleteBtn)
+        commentInput.value=""
+        commentContainer.appendChild(newComment)
+    })
+    const commentContainer = document.createElement("div")
+    commentContainer.className ="comments-container"
+    commentForm.appendChild(commentInput)
+    commentForm.appendChild(commentSubmitBtn)
+    commentForm.appendChild(commentContainer)
+    console.log(commentForm)
+    return (commentForm)
+} */
 
 function isUser(e){
     e.preventDefault()
