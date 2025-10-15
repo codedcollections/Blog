@@ -29,14 +29,15 @@ let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
 
+const editModeBtn = document.querySelector(".edit-mode")
 //from add post form
-
 const usernameInput = document.querySelector("#username")
 const passwordInput = document.querySelector("#password")
 const titleInput = document.querySelector("#title")
 const postTextInput = document.querySelector("#post-text-input")
 const postSubmitBtn = document.querySelector("#add-post-submit")
 const addFormError = document.querySelector(".add-post-error")
+let currentUser = 0
 
 function renderPost(postObject){
     //Holds all information about a post
@@ -46,9 +47,9 @@ function renderPost(postObject){
     const deleteContainer = document.createElement("div")
     deleteContainer.className = "delete-div l-flex l-flex--end"
     const deleteBtn = document.createElement("img")
+    deleteBtn.className = "delete-btn editable"
     deleteBtn.src = "assets/symbols/trash.svg"
     deleteBtn.alt = "trash can icon"
-    deleteBtn.className = "delete-btn"
     deleteBtn.addEventListener('click',()=>{
         postContainer.remove()
         deletePost(postObject)
@@ -119,14 +120,15 @@ function renderPost(postObject){
     console.log(postContainer)
     AllPostsContainer.appendChild(postContainer)
 }
-
+//starts reading first example in postarray
 postArray.forEach((element) => renderPost(element))
-let currentUser = 0
+readOrEdit()
 
 function isUser(e){
     e.preventDefault()
     console.log(usernameInput.value)
     console.log(passwordInput.value)
+    console.log(`on render is now ${editModeBtn.src}`)
     addFormError.innerHTML = ""
 
     const eMessage = document.createElement("p")
@@ -191,6 +193,28 @@ function deletePost(postObject){
     postArray.splice(itemIndex, 1);
     }
 }
+
+function readOrEdit(){
+    const interactiveElements = document.querySelectorAll(".editable")
+    interactiveElements.forEach(ShowAndHide)
+    if (editModeBtn.src.includes("assets/symbols/edit.svg")){
+        editModeBtn.src = "assets/symbols/cross.svg"
+    }
+    else{
+        editModeBtn.src = "assets/symbols/edit.svg"
+    }
+}
+function ShowAndHide(item){
+    console.log("tried to change editables")
+    if (item.classList.contains('hidden')){
+        item.classList.remove('hidden')
+    }
+    else{
+        item.classList.add("hidden")
+    }
+    
+}
+editModeBtn.addEventListener('click',readOrEdit)
 
 postSubmitBtn.addEventListener('click',isUser)
 

@@ -152,10 +152,12 @@ Bygg en bloggplattform som innehåller följande delar:
 4. **Responsiv Design:**
     - Se till att webbplatsen fungerar bra på olika enheter, både på dator och mobil. Använd CSS för att säkerställa en bra användarupplevelse på alla skärmstorlekar.
 */
-
+html{
+    overflow-y:scroll;
+}
 
 .wrapper{
-    width: 95%;
+    max-width: 980px;
     margin: 0 auto;
 }
 
@@ -221,10 +223,15 @@ h1,h2,h3,h4,h5,h6{
     display:none;
 }
 header{
+    max-width:100%;
     background-color: white;
-    padding:1rem 10rem;
+    padding:1rem 15rem;
     box-shadow: 0 -1rem 1rem 1rem rgb(140, 140, 140);
     margin-bottom:5rem;
+}
+.header-introduction * {
+    color: #2200ff;
+    margin: 0.5rem 0;
 }
 .svg{
     width:2rem;
@@ -264,7 +271,7 @@ header{
     
 }
 .post-info{
-    margin-bottom:1rem;
+    margin-bottom:2rem;
     font-style: italic;
     font-weight: bold;
     color:#333333;
@@ -272,6 +279,8 @@ header{
 .post-text{
     margin-bottom:1.5rem;
     line-height: 1.6rem;
+    height: 20rem;
+    overflow-y: scroll;
     
 }
 .likes-div{
@@ -303,11 +312,15 @@ header{
     background-color:rgb(255, 139, 190);
     cursor: pointer;
 }
-.add-user{
+.form-post{
     max-width: 50vh;
     background-color: white;
     border-radius:1rem;
     padding:3rem;
+    margin-bottom:3rem;
+}
+.form-post h2{
+    margin-bottom:1rem;
 }
 .form-btn-div{
     gap:1.5rem;
@@ -433,7 +446,7 @@ p span{
     width: 100%;
 } */
 
-@media only screen and (max-width: 850px) {
+@media only screen and (max-width: 950px) {
     body {
         background:none;
         background-color:red;
@@ -443,10 +456,19 @@ p span{
         padding: 1rem 1rem;
     }
     .l-grid--three{
-    grid-template-columns: 1fr;
+    grid-template-columns: 70%;
+    align-items: center;
+    justify-content: center;
     }
     .edit-mode{
         padding:0.1rem;
+    }
+    .post-text{
+        height: 100%;
+        overflow-y: auto;
+    }
+    .form-post{
+        margin:1rem 1rem;
     }
 
 }

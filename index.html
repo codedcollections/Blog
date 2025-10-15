@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogdot</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" type="module" defer></script>
 </head>
@@ -11,15 +12,15 @@
     <header class="l-flex l-flex--apart">
         <div class="header-introduction">
             <h1>Blogdot</h1>
-            <p>- "Sharing is caring"</p>
+            <p>"Sharing is caring"</p>
         </div>
-        <img src="assets/symbols/edit.svg" alt="edit icon" class="edit-mode svg" id="edit-mode">
+        <img src="assets/symbols/cross.svg" alt="edit icon" class="edit-mode svg" id="edit-mode">
     </header>
     
     <div class="wrapper">
 
         <!--form for user input for new posts-->
-        <form class="add-user l-flex l-flex--down">
+        <form class="form-post l-flex l-flex--down editable">
             <h2>Write a post to share:</h2>
             <label for="username">Username</label>
             <input type="text" name="username" id="username" placeholder="username...">
