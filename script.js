@@ -1,3 +1,5 @@
+import { Posts } from "./assets/classes/classes.js";
+
 let userArray = [
     {
         "userID": 1,
@@ -34,9 +36,13 @@ let postArray =[
 const AllPostsContainer = document.querySelector(".all-posts")
 
 //from add post form
+
 const usernameInput = document.querySelector("#username")
 const passwordInput = document.querySelector("#password")
+const titleInput = document.querySelector("#title")
+const postTextInput = document.querySelector("#post-text-input")
 const postSubmitBtn = document.querySelector("#add-post-submit")
+const addFormError = document.querySelector(".add-post-error")
 
 function renderPost(postObject){
     //Holds all information about a post
@@ -114,21 +120,38 @@ function renderPost(postObject){
 }
 
 postArray.forEach((element) => renderPost(element))
-let correctInputIndex = 0
+let currentUser = 0
+
 function isUser(e){
     e.preventDefault()
     console.log(usernameInput.value)
     console.log(passwordInput.value)
+    addFormError.innerHTML = ""
+
+    const eMessage = document.createElement("p")
+    eMessage.textContent = "Incorrect username or password. Try again."
+    eMessage.className = "e-message"
 
     userArray.forEach(compareInput)
 
-    console.log(`I can now see that ${correctInputIndex}`)
-    if(correctInputIndex ===1){
+    console.log(`I can now see that ${currentUser.userName}`)
+    if(!(currentUser ===0)){
         console.log("move on")
+        const addedPost = createPost(currentUser)
+        postArray.push(addedPost)
+        AllPostsContainer.innerHTML =""
+        postArray.forEach((element) => renderPost(element))
     }
     else{
-        correctInputIndex = 0
+        addFormError.appendChild(eMessage)
+        console.log("incorrect username or password")
+/*         
+        currentUser = 0 */
     }
+    usernameInput.value= usernameInput.ariaPlaceholder
+    passwordInput.value= passwordInput.ariaPlaceholder
+    titleInput.value= titleInput.ariaPlaceholder
+    postTextInput.value= postTextInput.ariaPlaceholder
 }
 
 function compareInput(item){
@@ -136,18 +159,31 @@ function compareInput(item){
         console.log("it is true")
         console.log(`${item.userName}`)
         console.log(`${item.password}`)
-        correctInputIndex++
+        currentUser = item
     }
     else{
         console.log("nope not a user")
         console.log(item.userName)
         console.log(item.password)
     }
-    console.log(`after if comparison is ${correctInputIndex}`)
-    return (correctInputIndex)
+    console.log(`after if comparison is ${currentUser}`)
+    return (currentUser)
+}
+function createPost(user){
+    console.log(`user that was sent in was ${user}`)
+    const newPost = new Posts(user.name,makeTimeStamp(),titleInput.value,postTextInput.value)
+    console.log(newPost.printPost())
+    return(newPost)
+/*     user.name
+    makeTimeStamp()
+    titleInput.value
+    usernameInput.value
+    passwordInput.value */
+
 }
 
 postSubmitBtn.addEventListener('click',isUser)
+
 function makeTimeStamp(){
     const dateStamp = new Date();
     const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
