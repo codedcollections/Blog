@@ -107,11 +107,39 @@ function renderPost(postObject){
     dislikeSymbol.className = "reaction-btn"
     dislikeBtn.appendChild(dislikeSymbol)
     likesContainer.appendChild(dislikeBtn)
+    const formHTML = createCommentForm()
 
     postContainer.appendChild(likesContainer)
+    postContainer.appendChild(formHTML)
     AllPostsContainer.appendChild(postContainer)
 }
 
+function createCommentForm(){
+    const commentForm = document.createElement("form")
+    commentForm.className="comment-form"
+    const commentInput = document.createElement("input")
+    commentInput.setAttribute('type', 'text')
+    commentInput.id = "comment"
+    commentInput.placeholder ="add a comment..."
+    const commentSubmitBtn = document.createElement("input")
+    commentSubmitBtn.setAttribute('type', 'submit')
+    commentSubmitBtn.value ="Comment"
+    commentSubmitBtn.id ="post-comment-btn"
+    commentSubmitBtn.addEventListener('click',(e)=>{
+        e.preventDefault()
+        const newComment = document.createElement("p")
+        newComment.textContent = `Comment made ${makeTimeStamp()}: ${commentInput.value} `
+        commentInput.value=""
+        commentContainer.appendChild(newComment)
+    })
+    const commentContainer = document.createElement("div")
+    commentContainer.className ="comments-container"
+    commentForm.appendChild(commentInput)
+    commentForm.appendChild(commentSubmitBtn)
+    commentForm.appendChild(commentContainer)
+    console.log(commentForm)
+    return (commentForm)
+}
 function isUser(e){
     e.preventDefault()
 
