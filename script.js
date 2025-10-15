@@ -23,15 +23,9 @@ let userArray = [
 
 /* const dateStamp = new Date();
 const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}` */
+const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,4)
 
-let postArray =[
-    {
-        "author":"Adam",
-        "title":"My first post",
-        "postContent":"Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",
-        "date": makeTimeStamp()
-    }
-]
+let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
 
@@ -83,8 +77,8 @@ function renderPost(postObject){
     likeBtn.className="like-btn l-flex"
     const likeCount = document.createElement("span")
     likeCount.className="like-num"
-    likeCount.textContent = 0
-    likeBtn.addEventListener('click',()=>{likeCount.textContent++})
+    likeCount.textContent = postObject.likes
+    likeBtn.addEventListener('click',()=>{likeCount.textContent = postObject.addLike()})
     likeBtn.appendChild(likeCount)
     const likeSymbol = document.createElement("img")
     likeSymbol.src = "assets/symbols/like.svg"
@@ -97,8 +91,8 @@ function renderPost(postObject){
     dislikeBtn.className ="dislike-btn l-flex"
     const dislikeCount = document.createElement("span")
     dislikeCount.className="dislike-num"
-    dislikeCount.textContent = 0
-    dislikeBtn.addEventListener('click',()=>{dislikeCount.textContent--})
+    dislikeCount.textContent = postObject.dislikes
+    dislikeBtn.addEventListener('click',()=>{dislikeCount.textContent = postObject.addDislike()})
     dislikeBtn.appendChild(dislikeCount)
     const dislikeSymbol = document.createElement("img")
     dislikeSymbol.src = "assets/symbols/dislike.svg"

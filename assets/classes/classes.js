@@ -1,9 +1,17 @@
 class Posts{
-    constructor(author, date, title, postContent){
+    constructor(author, date, title, postContent, likes = 0,dislikes = 0){
         this.author = author
         this.date = date
         this.title = title
         this.postContent = postContent
+        this.likes = likes,
+        this.dislikes = dislikes
+    }
+    addLike(){
+        return(this.likes++)
+    }
+    addDislike(){
+        return(this.dislikes--)
     }
 /*     addComment(array,comment){
         array.push(comment)
@@ -15,7 +23,7 @@ class Posts{
         //no more saved comment on array spot
     } */
     printPost(){
-        return `userName ${this.author} date ${this.date} end of date title ${this.title} postContent ${this.postContent}`
+        return `userName: ${this.author} \ndate: ${this.date} \ntitle: ${this.title} \npostContent: ${this.postContent} \nlikes: ${this.likes} \ndislikes: ${this.dislikes}`
     }
 }
 export{Posts}

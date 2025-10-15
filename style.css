@@ -194,6 +194,11 @@ h1,h2,h3,h4,h5,h6{
     color:rgb(26, 26, 26)
 }
 
+.l-grid--three{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    gap:1rem;
+}
 .l-flex{
     display:flex;
 }
@@ -239,7 +244,6 @@ header{
 .post{
     background-color: #fffbe4;
     /* box-shadow: inset 0.02rem 0.02rem 0.8rem 0.1rem rgb(252, 253, 195); */
-    width:70%;
     padding: 1rem;
 }
 .delete-div{
@@ -430,13 +434,19 @@ p span{
 } */
 
 @media only screen and (max-width: 850px) {
-  body {
-    background:none;
-    background-color:red;
-    color:red;
-  }
-  header{
-    padding: 1rem 1rem;
-}
+    body {
+        background:none;
+        background-color:red;
+        color:red;
+    }
+    header{
+        padding: 1rem 1rem;
+    }
+    .l-grid--three{
+    grid-template-columns: 1fr;
+    }
+    .edit-mode{
+        padding:0.1rem;
+    }
 
 }
