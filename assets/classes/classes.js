@@ -14,7 +14,7 @@ class Posts{
     addDislike(){
         return(this.dislikes--)
     }
-    areComments(){
+    hasComments(){
         if(this.comments.length === 0)
             return(false)
         else{
@@ -22,13 +22,20 @@ class Posts{
         }
     }
     addComment(comment){
+        console.log("method reads comment as" + comment)
+        console.log("after stringify" + JSON.stringify(comment))
+        console.log("the array is" + this.comments.length)
+        console.log("array is" + JSON.stringify(this.comments))
         this.comments.push(comment)
+        console.log("length after push" + this.comments.length)
+        console.log("array is" + JSON.stringify(this.comments))
         return(this.comments)
     }
     removeComment(comment){
+        console.log(`this came to removeComment ${comment}`)
         const itemIndex = this.comments.indexOf(comment)
         if (itemIndex !== -1) {
-        postArray.splice(itemIndex, 1);
+        this.comments.splice(itemIndex, 1);
     }
     }
 /*     addComment(array,comment){

@@ -180,6 +180,7 @@ h1,h2,h3,h4,h5,h6{
     display:grid;
     grid-template-columns: repeat(2,1fr);
     gap:1rem;
+    margin-bottom:5rem;
 }
 .l-flex{
     display:flex;
@@ -345,6 +346,7 @@ header{
 .comment-btn:hover{
     background-color: rgb(255, 50, 50);
 }
+
 @media only screen and (max-width: 950px) {
     header{
         padding: 1rem 1rem;
@@ -353,16 +355,20 @@ header{
     grid-template-columns: 70%;
     align-items: center;
     justify-content: center;
+    gap:10rem;
     }
     .edit-mode{
         padding:0.1rem;
+    }
+    .post{
+        margin-bottom:2rem;
     }
     .post-text{
         height: 100%;
         overflow-y: auto;
     }
     .form-post{
-        margin:1rem 1rem;
+        margin:5rem 1rem;
     }
 
 }
