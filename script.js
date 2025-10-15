@@ -21,9 +21,8 @@ let userArray = [
     }
 ]
 
-/* const dateStamp = new Date();
-const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}` */
-const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,4)
+
+const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,- 4)
 
 let postArray =[firstPost]
 
@@ -109,49 +108,37 @@ function renderPost(postObject){
     dislikeBtn.appendChild(dislikeSymbol)
     likesContainer.appendChild(dislikeBtn)
 
-
-
-/*     const dislikeBtn = document.createElement("button")
-    dislikeBtn.textContent = 0
-    dislikeBtn.addEventListener('click',()=>{dislikeBtn.textContent--})
-    likesContainer.appendChild(dislikeBtn) */
-    console.log(likesContainer)
     postContainer.appendChild(likesContainer)
-    console.log(postContainer)
     AllPostsContainer.appendChild(postContainer)
 }
-//starts reading first example in postarray
-postArray.forEach((element) => renderPost(element))
-readOrEdit()
 
 function isUser(e){
     e.preventDefault()
-    console.log(usernameInput.value)
-    console.log(passwordInput.value)
-    console.log(`on render is now ${editModeBtn.src}`)
+
     addFormError.innerHTML = ""
 
     const eMessage = document.createElement("p")
     eMessage.textContent = "Incorrect username or password. Try again."
     eMessage.className = "e-message"
 
+    //changes currentUser from 0 to userObject if true
     userArray.forEach(compareInput)
 
-    console.log(`I can now see that ${currentUser.userName}`)
     if(!(currentUser ===0)){
-        console.log("move on")
+
         const addedPost = createPost(currentUser)
         postArray.push(addedPost)
         AllPostsContainer.innerHTML =""
         postArray.forEach((element) => renderPost(element))
+        //reset - allow for new input in userName and password
         currentUser=0
     }
     else{
         addFormError.appendChild(eMessage)
-        console.log("incorrect username or password")
     }
     restorePlaceholder()
 }
+
 function restorePlaceholder(){
     usernameInput.value= usernameInput.ariaPlaceholder
     usernameInput.value= usernameInput.ariaPlaceholder
@@ -162,31 +149,16 @@ function restorePlaceholder(){
 
 function compareInput(item){
     if (item.userName === usernameInput.value && item.password === passwordInput.value){
-        console.log("it is true")
-        console.log(`${item.userName}`)
-        console.log(`${item.password}`)
         currentUser = item
     }
-    else{
-        console.log("nope not a user")
-        console.log(item.userName)
-        console.log(item.password)
-    }
-    console.log(`after if comparison is ${currentUser}`)
     return (currentUser)
 }
-function createPost(user){
-    console.log(`user that was sent in was ${user}`)
-    const newPost = new Posts(user.name,makeTimeStamp(),titleInput.value,postTextInput.value)
-    console.log(newPost.printPost())
-    return(newPost)
-/*     user.name
-    makeTimeStamp()
-    titleInput.value
-    usernameInput.value
-    passwordInput.value */
 
+function createPost(user){
+    const newPost = new Posts(user.name,makeTimeStamp(),titleInput.value,postTextInput.value)
+    return(newPost)
 }
+
 function deletePost(postObject){
     const itemIndex = postArray.indexOf(postObject)
     if (itemIndex !== -1) {
@@ -205,7 +177,6 @@ function readOrEdit(){
     }
 }
 function ShowAndHide(item){
-    console.log("tried to change editables")
     if (item.classList.contains('hidden')){
         item.classList.remove('hidden')
     }
@@ -214,18 +185,18 @@ function ShowAndHide(item){
     }
     
 }
-editModeBtn.addEventListener('click',readOrEdit)
-
-postSubmitBtn.addEventListener('click',isUser)
 
 function makeTimeStamp(){
     const dateStamp = new Date();
     const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
-    console.log("You are in makeTimeStamp function now")
     return dateAndTime
 }
 
-function checkInput(e){
-    e.preventDefault()
-    console.log("hi")
-}
+//starts reading first example in postarray
+postArray.forEach((element) => renderPost(element))
+readOrEdit()
+
+editModeBtn.addEventListener('click',readOrEdit)
+
+postSubmitBtn.addEventListener('click',isUser)
+
