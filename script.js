@@ -1,29 +1,42 @@
+import { Posts } from "./assets/classes/classes.js";
+
 let userArray = [
     {
         "userID": 1,
         "userName": "myNameIsAdam",
+        "password": "111",
         "name": "Adam",
     },
     {
         "userID": 2,
         "userName": "CallMeNora",
+        "password": "112",
         "name": "Nora"
-    }
-]
-
-/* const dateStamp = new Date();
-const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}` */
-
-let postArray =[
+    },
     {
-        "author":"Adam",
-        "title":"My first post",
-        "postContent":"Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",
-        "date": makeTimeStamp()
+        "userID": 3,
+        "userName": "A",
+        "password": "1",
+        "name": "Amelia",
     }
 ]
+
+
+const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,- 4)
+
+let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
+
+const editModeBtn = document.querySelector(".edit-mode")
+//from add post form
+const usernameInput = document.querySelector("#username")
+const passwordInput = document.querySelector("#password")
+const titleInput = document.querySelector("#title")
+const postTextInput = document.querySelector("#post-text-input")
+const postSubmitBtn = document.querySelector("#add-post-submit")
+const addFormError = document.querySelector(".add-post-error")
+let currentUser = 0
 
 function renderPost(postObject){
     //Holds all information about a post
@@ -33,10 +46,13 @@ function renderPost(postObject){
     const deleteContainer = document.createElement("div")
     deleteContainer.className = "delete-div l-flex l-flex--end"
     const deleteBtn = document.createElement("img")
+    deleteBtn.className = "delete-btn editable"
     deleteBtn.src = "assets/symbols/trash.svg"
     deleteBtn.alt = "trash can icon"
-    deleteBtn.className = "delete-btn"
-    deleteBtn.addEventListener('click',()=>{postContainer.remove()})
+    deleteBtn.addEventListener('click',()=>{
+        postContainer.remove()
+        deletePost(postObject)
+    })
     deleteContainer.appendChild(deleteBtn)
     postContainer.appendChild(deleteContainer)
     //information presented in post
@@ -64,8 +80,10 @@ function renderPost(postObject){
     likeBtn.className="like-btn l-flex"
     const likeCount = document.createElement("span")
     likeCount.className="like-num"
-    likeCount.textContent = 0
-    likeBtn.addEventListener('click',()=>{likeCount.textContent++})
+    likeCount.textContent = postObject.likes
+    likeBtn.addEventListener('click',()=>{
+        postObject.addLike()
+        likeCount.textContent = postObject.likes})
     likeBtn.appendChild(likeCount)
     const likeSymbol = document.createElement("img")
     likeSymbol.src = "assets/symbols/like.svg"
@@ -78,8 +96,10 @@ function renderPost(postObject){
     dislikeBtn.className ="dislike-btn l-flex"
     const dislikeCount = document.createElement("span")
     dislikeCount.className="dislike-num"
-    dislikeCount.textContent = 0
-    dislikeBtn.addEventListener('click',()=>{dislikeCount.textContent--})
+    dislikeCount.textContent = postObject.dislikes
+    dislikeBtn.addEventListener('click',()=>{
+        postObject.addDislike()
+        dislikeCount.textContent = postObject.dislikes})
     dislikeBtn.appendChild(dislikeCount)
     const dislikeSymbol = document.createElement("img")
     dislikeSymbol.src = "assets/symbols/dislike.svg"
@@ -88,28 +108,95 @@ function renderPost(postObject){
     dislikeBtn.appendChild(dislikeSymbol)
     likesContainer.appendChild(dislikeBtn)
 
-
-
-/*     const dislikeBtn = document.createElement("button")
-    dislikeBtn.textContent = 0
-    dislikeBtn.addEventListener('click',()=>{dislikeBtn.textContent--})
-    likesContainer.appendChild(dislikeBtn) */
-    console.log(likesContainer)
     postContainer.appendChild(likesContainer)
-    console.log(postContainer)
     AllPostsContainer.appendChild(postContainer)
 }
 
-postArray.forEach((element) => renderPost(element))
+function isUser(e){
+    e.preventDefault()
+
+    addFormError.innerHTML = ""
+
+    const eMessage = document.createElement("p")
+    eMessage.textContent = "Incorrect username or password. Try again."
+    eMessage.className = "e-message"
+
+    //changes currentUser from 0 to userObject if true
+    userArray.forEach(compareInput)
+
+    if(!(currentUser ===0)){
+
+        const addedPost = createPost(currentUser)
+        postArray.push(addedPost)
+        AllPostsContainer.innerHTML =""
+        postArray.forEach((element) => renderPost(element))
+        //reset - allow for new input in userName and password
+        currentUser=0
+    }
+    else{
+        addFormError.appendChild(eMessage)
+    }
+    restorePlaceholder()
+}
+
+function restorePlaceholder(){
+    usernameInput.value= usernameInput.ariaPlaceholder
+    usernameInput.value= usernameInput.ariaPlaceholder
+    passwordInput.value= passwordInput.ariaPlaceholder
+    titleInput.value= titleInput.ariaPlaceholder
+    postTextInput.value= postTextInput.ariaPlaceholder
+}
+
+function compareInput(item){
+    if (item.userName === usernameInput.value && item.password === passwordInput.value){
+        currentUser = item
+    }
+    return (currentUser)
+}
+
+function createPost(user){
+    const newPost = new Posts(user.name,makeTimeStamp(),titleInput.value,postTextInput.value)
+    return(newPost)
+}
+
+function deletePost(postObject){
+    const itemIndex = postArray.indexOf(postObject)
+    if (itemIndex !== -1) {
+    postArray.splice(itemIndex, 1);
+    }
+}
+
+function readOrEdit(){
+    const interactiveElements = document.querySelectorAll(".editable")
+    interactiveElements.forEach(ShowAndHide)
+    if (editModeBtn.src.includes("assets/symbols/edit.svg")){
+        editModeBtn.src = "assets/symbols/cross.svg"
+    }
+    else{
+        editModeBtn.src = "assets/symbols/edit.svg"
+    }
+}
+function ShowAndHide(item){
+    if (item.classList.contains('hidden')){
+        item.classList.remove('hidden')
+    }
+    else{
+        item.classList.add("hidden")
+    }
+    
+}
 
 function makeTimeStamp(){
     const dateStamp = new Date();
     const dateAndTime =`${dateStamp.getFullYear()}-${dateStamp.getMonth() + 1}-${dateStamp.getDate()} ${dateStamp.getHours()}:${dateStamp.getMinutes()}`
-    console.log("You are in makeTimeStamp function now")
     return dateAndTime
 }
 
-function checkInput(e){
-    e.preventDefault()
-    console.log("hi")
-}
+//starts reading first example in postarray
+postArray.forEach((element) => renderPost(element))
+readOrEdit()
+
+editModeBtn.addEventListener('click',readOrEdit)
+
+postSubmitBtn.addEventListener('click',isUser)
+
