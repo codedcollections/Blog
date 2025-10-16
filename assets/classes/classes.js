@@ -23,7 +23,7 @@ class Posts{
     }
     addComment(comment){
         this.comments.push(comment)
-        return(this.comments)
+        return this.comments
     }
     removeComment(comment){
         const itemIndex = this.comments.indexOf(comment)
