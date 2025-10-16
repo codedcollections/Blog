@@ -38,19 +38,11 @@ class Posts{
         this.comments.splice(itemIndex, 1);
     }
     }
-/*     addComment(array,comment){
-        array.push(comment)
-        return this.comments
-    }
-    deleteComment(array,comment){
-        //find index of comment in array indexOf()
-        //splice this.comments array remove from index, 1 object
-        //no more saved comment on array spot
-    } */
     printPost(){
         return `userName: ${this.author} \ndate: ${this.date} \ntitle: ${this.title} \npostContent: ${this.postContent} \nlikes: ${this.likes} \ndislikes: ${this.dislikes}`
     }
 }
+
 class Comments{
     constructor(comment,date){
         this.comment = comment
