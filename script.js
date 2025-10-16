@@ -21,15 +21,12 @@ let userArray = [
     }
 ]
 
-
 const firstPost = new Posts("Adam",makeTimeStamp(),"My first post","Where to begin? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut placeat explicabo vero, id corporis laboriosam repellat debitis quasi, omnis facilis totam tenetur vel doloremque iure nesciunt blanditiis eligendi, dolores distinctio. Until next time!",3,- 4)
 const firstComment = new Comments("wow häftigt",makeTimeStamp())
 firstPost.addComment(firstComment)
-console.log(JSON.stringify(firstPost))
 let postArray =[firstPost]
 
 const AllPostsContainer = document.querySelector(".all-posts")
-
 const editModeBtn = document.querySelector(".edit-mode")
 //from add post form
 const usernameInput = document.querySelector("#username")
@@ -58,27 +55,22 @@ function renderPost(postObject){
     })
     deleteContainer.appendChild(deleteBtn)
     postContainer.appendChild(deleteContainer)
-    //information presented in post
     const postTitle = document.createElement("h2")
     postTitle.className="post-title"
     postTitle.textContent = postObject.title
     postContainer.appendChild(postTitle)
-
     const postInfo = document.createElement("p")
     //contains date and name of post author
     postInfo.className = "post-info"
     const postedBy = `posted by ${postObject.author} ${postObject.date}`
     postInfo.textContent = postedBy
     postContainer.appendChild(postInfo)
-
     const postText = document.createElement("p")
     postText.className="post-text"
     postText.textContent = postObject.postContent
     postContainer.appendChild(postText)
-
     const likesContainer = document.createElement("div")
     likesContainer.className = "likes-div l-flex"
-
     const likeBtn = document.createElement("button")
     likeBtn.className="like-btn l-flex"
     const likeCount = document.createElement("span")
@@ -94,7 +86,6 @@ function renderPost(postObject){
     likeSymbol.className = "reaction-btn"
     likeBtn.appendChild(likeSymbol)
     likesContainer.appendChild(likeBtn)
-
     const dislikeBtn = document.createElement("button")
     dislikeBtn.className ="dislike-btn l-flex"
     const dislikeCount = document.createElement("span")
@@ -110,11 +101,9 @@ function renderPost(postObject){
     dislikeSymbol.className = "reaction-btn"
     dislikeBtn.appendChild(dislikeSymbol)
     likesContainer.appendChild(dislikeBtn)
-
     const commentContainer = document.createElement("div")
     commentContainer.className="comments-div"
     if(postObject.hasComments()){
-        console.log("saw comments")
         postObject.comments.forEach(item=>{
             const oldComment = document.createElement("div")
             oldComment.className="comment-div"
@@ -124,7 +113,6 @@ function renderPost(postObject){
             commentDeleteBtn.alt="trash can icon"
             commentDeleteBtn.className="comment-btn editable"
             commentDeleteBtn.addEventListener('click',()=>{
-                console.log(`this is item: ${item}`)
                 postObject.removeComment(item)
                 oldComment.remove()
                 
@@ -132,9 +120,6 @@ function renderPost(postObject){
             oldComment.appendChild(commentDeleteBtn)
             commentContainer.appendChild(oldComment)
         })
-    }
-    else{
-        console.log("no comment")
     }
     const commentForm = document.createElement("form")
     commentForm.className="comment-form"
@@ -146,32 +131,23 @@ function renderPost(postObject){
     commentSubmitBtn.setAttribute('type', 'submit')
     commentSubmitBtn.value ="Comment"
     commentSubmitBtn.className ="post-comment-btn"
-
     commentSubmitBtn.addEventListener('click',(e)=>{
         e.preventDefault()
-        console.log(commentInput.value)
-        console.log((makeTimeStamp()))
         const commentObject = new Comments((commentInput.value),(makeTimeStamp()))
-        console.log(JSON.stringify(commentObject))
         postObject.addComment(commentObject)
         const newComment = document.createElement("div")
         newComment.className="comment-div"
         newComment.innerHTML = `Comment made ${commentObject.date}: ${commentObject.comment} `
-        console.log(JSON.stringify(newComment))
         const commentDeleteBtn = document.createElement("img")
         commentDeleteBtn.src="assets/symbols/trash.svg"
         commentDeleteBtn.alt="trash can icon"
         //on click of edit mode index is changed
         if (editIndex === 1){
-            console.log("in edit index if ")
             commentDeleteBtn.className = "comment-btn editable"
-            
         }
         else{
-            console.log("in second if statement")
             commentDeleteBtn.className = "comment-btn editable hidden"
         }
-        /* commentDeleteBtn.className="comment-btn editable" */
         commentDeleteBtn.addEventListener('click',()=>{
             postObject.removeComment(commentObject)
             newComment.remove()
@@ -183,54 +159,14 @@ function renderPost(postObject){
     commentForm.appendChild(commentInput)
     commentForm.appendChild(commentSubmitBtn)
     commentForm.appendChild(commentContainer)
-
-    /* const formHTML = createCommentForm() */
-
     postContainer.appendChild(likesContainer)
     postContainer.appendChild(commentForm)
     postContainer.appendChild(commentContainer)
     AllPostsContainer.appendChild(postContainer)
 }
 
-/* function createCommentForm(){
-    const commentForm = document.createElement("form")
-    commentForm.className="comment-form"
-    const commentInput = document.createElement("input")
-    commentInput.setAttribute('type', 'text')
-    commentInput.className = "comment"
-    commentInput.placeholder ="add a comment..."
-    const commentSubmitBtn = document.createElement("input")
-    commentSubmitBtn.setAttribute('type', 'submit')
-    commentSubmitBtn.value ="Comment"
-    commentSubmitBtn.className ="post-comment-btn"
-    commentSubmitBtn.addEventListener('click',(e)=>{
-        e.preventDefault()
-        const newComment = document.createElement("div")
-        newComment.className="comment-div"
-        newComment.textContent = `Comment made ${makeTimeStamp()}: ${commentInput.value} `
-        const commentDeleteBtn = document.createElement("img")
-        commentDeleteBtn.src="assets/symbols/trash.svg"
-        commentDeleteBtn.alt="trash can icon"
-        commentDeleteBtn.className="comment-btn"
-        commentDeleteBtn.addEventListener('click',()=>{
-            newComment.remove()
-        })
-        newComment.appendChild(commentDeleteBtn)
-        commentInput.value=""
-        commentContainer.appendChild(newComment)
-    })
-    const commentContainer = document.createElement("div")
-    commentContainer.className ="comments-container"
-    commentForm.appendChild(commentInput)
-    commentForm.appendChild(commentSubmitBtn)
-    commentForm.appendChild(commentContainer)
-    console.log(commentForm)
-    return (commentForm)
-} */
-
 function isUser(e){
     e.preventDefault()
-
     addFormError.innerHTML = ""
 
     const eMessage = document.createElement("p")
@@ -239,9 +175,7 @@ function isUser(e){
 
     //changes currentUser from 0 to userObject if true
     userArray.forEach(compareInput)
-
     if(!(currentUser ===0)){
-
         const addedPost = createPost(currentUser)
         postArray.push(addedPost)
         AllPostsContainer.innerHTML =""
@@ -294,14 +228,14 @@ function readOrEdit(){
         editIndex = 0
     }
 }
+
 function ShowAndHide(item){
     if (item.classList.contains('hidden')){
         item.classList.remove('hidden')
     }
     else{
         item.classList.add("hidden")
-    }
-    
+    } 
 }
 
 function makeTimeStamp(){
