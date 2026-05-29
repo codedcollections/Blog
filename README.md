@@ -3,6 +3,16 @@
 A lightweight, responsive blog website built entirely with HTML, CSS, and vanilla JavaScript.
 [Live Demo](https://blog-pi-coral-79.vercel.app/)
 
+## 🔒 Demo Username & Password
+
+To add a new post use these login credentials:
+
+**Username: A**
+
+**Password: 1**
+
+(login credentials for demo user Amelia)
+
 ---
 
 ## 🚀 Quick Start
@@ -19,16 +29,6 @@ To get a local copy up and running, follow these simple steps:
 
 3. **Launch the app:**
    Double-click the index.html file to open it in a web browser.
-
-## 🔒 Demo Username & Password
-
-To add a new post use these login credentials:
-
-**Username: A**
-
-**Password: 1**
-
-(login credentials for demo user Amelia)
 
 ## 🛠️ Technologies Used
 
