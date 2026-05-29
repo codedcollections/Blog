@@ -12,7 +12,7 @@ To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/codedcollections/Blog.git](https://github.com/codedcollections/Blog.git)
+   git clone https://github.com/codedcollections/Blog.git
    ```
 2. **Navigate into the project folder:**
    cd Blog
@@ -24,8 +24,10 @@ To get a local copy up and running, follow these simple steps:
 
 To add a new post use these login credentials:
 
-Username: A
-Password: 1
+**Username: A**
+
+**Password: 1**
+
 (login credentials for demo user Amelia)
 
 ## 🛠️ Technologies Used
